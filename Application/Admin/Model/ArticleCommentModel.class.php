@@ -52,6 +52,8 @@ class ArticleCommentModel extends RelationModel {
 			$data = $post;
 			$data['content'] = getContent($data['content']);
 			$data['name'] = htmlspecialchars($post['name']);
+			$data['ip'] = GetIP();
+			$data['ua'] = $_SERVER['HTTP_USER_AGENT'];
 			$data['ctm'] = date('Y-m-d H:i:s',time());
 			try {
 				$isadd = $model->data($data)->add($data);

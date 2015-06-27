@@ -280,7 +280,18 @@ SyntaxHighlighter.all();
 
 //评论提交
 $('#comment-submit').click(function(){
-	$('#post-comment').submit();
+	//提交的时候检查邮箱格式是否正确
+	var res = true;
+	var reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/; 
+	var email = $("input[name='ArticleComment[email]']").val();
+	if(email != ''){
+		res = reg.test(email); 
+	}
+	if(!res){
+		alert('请填写正确的邮箱格式!');
+	}else{
+		$('#post-comment').submit();
+	}
 });
 
 $('.media-heading .reply').click(function(){
