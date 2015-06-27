@@ -48,7 +48,10 @@ class ArticleCommentModel extends RelationModel {
 	public function createComment($post){
 		$isadd = 0;
 		$model = D('Admin/ArticleComment');
-		if($post['content'] != ''){
+		$reg = '/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/';
+		//【空的评论内容】或【乱填的联系邮箱】时，不会进行写入处理
+		if($post['content'] == '' || (isset($post['email']) && !empty($post['email']) && preg_match($reg, $post['email']) == 0 )){
+		}else{
 			$data = $post;
 			$data['content'] = getContent($data['content']);
 			$data['name'] = htmlspecialchars($post['name']);
