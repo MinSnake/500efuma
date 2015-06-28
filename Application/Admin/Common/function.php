@@ -87,7 +87,13 @@ function sidebar(){
 			'name'=>'友链管理',
 			'key'=>'links',
 			'url'=>U('Admin/Links/index'),
-			'icon'=>'fa-bar-chart-o',
+			'icon'=>'fa-exchange',
+		),
+		'message' => array(
+			'name'=>'留言板管理',
+			'key'=>'message',
+			'url'=>U('Admin/Message/index'),
+			'icon'=>'fa-comments-o',
 		),
 	    
 	);
