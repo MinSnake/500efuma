@@ -12,11 +12,26 @@ class MessageController extends AdminBaseController {
 	public function index(){
 		$p = isset($_GET['p']) ? $_GET['p'] : 0;
 		//留言板列表
-		
-		
-		
-		
+		$this->display();
 	}
+	
+	public function jsondb(){
+        $draw = $_GET['draw'];
+        $start = $_GET['start'];
+        $length = $_GET['length'];
+        /*列表分页查询*/
+        $model = new \Admin\Model\MessageModel();
+        $list = $model->getMessageList($start, $length);
+        /*查询总条数*/
+        $count = D('Admin/Message')->count();
+        /*生成JSON数据,安装前段表格框架的形式进行数据返回，jquery.datatable.js*/
+        $result['draw'] = $draw;
+        $result['recordsTotal'] = $count;
+        $result['recordsFiltered'] = $count;
+        $result['data'] = $list;
+        echo json_encode($result);
+    }
+	
 	
 	
 	
