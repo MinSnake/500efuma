@@ -33,8 +33,7 @@ class MessageModel extends RelationModel {
 			array_push ( $temp, $status);
 			array_push ( $temp, $msg['ctm']);
 			$action = 
-// 					"<a href='" . $msg['url'] . "' target='_blank' class='btn purple btn-sm'>预览</a> " .
-					"<button type='button' data-id='".$msg['id']."' class='btn btn-sm yellow sendEmail'>发邮件</button> " .
+					"<button class='btn btn-sm yellow showMsg' data-id='".$msg['id']."'>查看</button> " .
 					"<a href='" . U('Links/update',array('id'=>$msg['id'])) . "' class='btn blue btn-sm'>编辑</a> " .
 					"<a href='" . U('Links/delete',array('id'=>$msg['id'])) . "' class='btn red btn-sm'>删除</a> ";
 			array_push ( $temp, $action);
@@ -42,6 +41,23 @@ class MessageModel extends RelationModel {
 		}
 		return $data;
 	}
+	
+	
+	public function getMessageList_By_Id($id){
+		$model = D('Admin/Message');
+		//二级回复列表
+		$map['pid']  = $id;
+		$list = $model
+				->alias('a')
+				->field('a.id,a.headimg_url,a.name,a.content,a.status,a.ctm,b.id as bid,b.name as bname')
+				->join('left join __MESSAGE__ b on a.tid=b.id')
+				->order('a.ctm asc')
+				->where('a.pid='.$id)
+				->select();
+		//进行set
+		return $list;
+	}
+	
 	
 	private function getStatus_HTML($status){
 		$html = '<span class="label label-sm label-default">无法获取</span>';
@@ -52,5 +68,8 @@ class MessageModel extends RelationModel {
 		}
 		return $html;
 	}
+	
+	
+	
 	
 }

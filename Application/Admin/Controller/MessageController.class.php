@@ -10,8 +10,6 @@ namespace Admin\Controller;
 class MessageController extends AdminBaseController {
 	
 	public function index(){
-		$p = isset($_GET['p']) ? $_GET['p'] : 0;
-		//留言板列表
 		$this->display();
 	}
 	
@@ -31,8 +29,18 @@ class MessageController extends AdminBaseController {
         $result['data'] = $list;
         echo json_encode($result);
     }
-	
-	
-	
-	
+    
+    public function msglist(){
+    	layout(false);
+    	$id = $_GET['id'];
+    	$model = new \Admin\Model\MessageModel();
+    	//当前评论的信息
+    	$info = $model->where('id='.$id)->find();
+    	$list = $model->getMessageList_By_Id($id);
+    	$this->assign('info',$info);
+    	$this->assign('list',$list);
+    	$content = $this->fetch('Message:listinfo');
+    	echo $content;
+    }
+    
 }
