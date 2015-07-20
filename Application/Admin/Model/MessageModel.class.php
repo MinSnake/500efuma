@@ -54,6 +54,20 @@ class MessageModel extends RelationModel {
 		return $list;
 	}
 	
+	public function deleteMessage($id){
+		try {
+			$isdelete = D('Admin/Message')->delete($id);
+			$errcode = $isdelete ? 0 : 500;
+			$msg = $isdelete ? '删除成功' : '删除失败';
+		} catch (Exception $e) {
+			$errcode = 500;
+			$msg = $e->getMessage();
+		}
+		$res['errcode'] = $errcode;
+		$res['msg'] = $msg;
+		return $res;
+	}
+	
 	
 	private function getStatus_HTML($status){
 		$html = '<span class="label label-sm label-default">无法获取</span>';

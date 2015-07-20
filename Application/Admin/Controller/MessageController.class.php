@@ -78,8 +78,13 @@ class MessageController extends AdminBaseController {
     }
     
     public function delete(){
-        
-    }
+		$id = $_GET['id'];
+		$model = new \Admin\Model\MessageModel();
+		$data = $model->deleteMessage($id);
+		if($data['errcode'] == 0){
+			$this->redirect('Message/index');
+		}
+	}
     
     
 }
