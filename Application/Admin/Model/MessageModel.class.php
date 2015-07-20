@@ -1,7 +1,6 @@
 <?php
 namespace Admin\Model;
 use Think\Model\RelationModel;
-use Think\Exception;
 
 class MessageModel extends RelationModel {
 	
@@ -24,7 +23,7 @@ class MessageModel extends RelationModel {
 			$temp = array();
 			$choose = "<input type='checkbox' class='checkboxes' value='".$msg['id']."'>";
 			array_push ( $temp, $choose );//勾选框
-			$headimg_url = "<img src='".$msg['headimg_url']."'>";
+			$headimg_url = "<img width='40px' src='".$msg['headimg_url']."'>";
 			array_push ( $temp, $headimg_url);
 			array_push ( $temp, $msg['name']);//
 			array_push ( $temp, $msg['content']);//
@@ -34,8 +33,8 @@ class MessageModel extends RelationModel {
 			array_push ( $temp, $msg['ctm']);
 			$action = 
 					"<button class='btn btn-sm yellow showMsg' data-id='".$msg['id']."'>查看</button> " .
-					"<a href='" . U('Links/update',array('id'=>$msg['id'])) . "' class='btn blue btn-sm'>编辑</a> " .
-					"<a href='" . U('Links/delete',array('id'=>$msg['id'])) . "' class='btn red btn-sm'>删除</a> ";
+					"<a href='" . U('Message/update',array('id'=>$msg['id'])) . "' class='btn blue btn-sm'>编辑</a> " .
+					"<a href='" . U('Message/delete',array('id'=>$msg['id'])) . "' class='btn red btn-sm'>删除</a> ";
 			array_push ( $temp, $action);
 			array_push ( $data, $temp );
 		}
@@ -43,18 +42,15 @@ class MessageModel extends RelationModel {
 	}
 	
 	
+	//二级回复列表
 	public function getMessageList_By_Id($id){
 		$model = D('Admin/Message');
-		//二级回复列表
-		$map['pid']  = $id;
-		$list = $model
-				->alias('a')
+		$list = $model->alias('a')
 				->field('a.id,a.headimg_url,a.name,a.content,a.status,a.ctm,b.id as bid,b.name as bname')
 				->join('left join __MESSAGE__ b on a.tid=b.id')
 				->order('a.ctm asc')
 				->where('a.pid='.$id)
 				->select();
-		//进行set
 		return $list;
 	}
 	
@@ -68,8 +64,6 @@ class MessageModel extends RelationModel {
 		}
 		return $html;
 	}
-	
-	
 	
 	
 }

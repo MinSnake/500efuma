@@ -43,4 +43,43 @@ class MessageController extends AdminBaseController {
     	echo $content;
     }
     
+    public function save(){
+        if (isset($_POST['id']) && isset($_POST['name']) && isset($_POST['email'])){
+            $model = new \Admin\Model\MessageModel();
+            $data['name'] = $_POST['name'];
+            $data['email'] = $_POST['email'];
+            $data['content'] = $_POST['content'];
+            $data['ip'] = GetIP();
+            $data['ua'] = $_SERVER['HTTP_USER_AGENT'];
+            //不为空，则不是新建的数据
+            if (!empty($_POST['id'])){
+                $map['id'] = $_POST['id'];
+                $is_save = $model->where($map)->save($data);
+            }else{//管理员留言
+                $data['headimg_url'] = C('ADMIN_HEADIMG_URL');
+                $data['name'] = C('ADMIN_NAME');
+                $data['email'] = C('ADMIN_EMAIL');
+                $data['ctm'] = date('Y-m-d H:i:s',time());
+                $data['is_admin'] = 1;
+                $is_save = $model->data($data)->add($data);
+                $sql = $model->getLastSql();
+            }
+            $res['errcode'] = $is_save ? true : false;
+            $res['errmsg'] = $is_save ? '操作成功' : $model->getError();
+        }else{
+            $res['errcode'] = false;
+            $res['errmsg'] = '参数缺失';
+        }
+        echo json_encode($res);
+    }
+    
+    public function update(){
+        
+    }
+    
+    public function delete(){
+        
+    }
+    
+    
 }
