@@ -219,7 +219,38 @@ jQuery(document).ready(function() {
     	var email = $("#msg-email").val();
     	var content = $("#msg-content").val();
     	
-    	
+ 	    $.ajax({
+   			type:'post',
+   			url:'../Message/save',
+   			dataType:"json", 
+   			data:{
+   				'id' : msg_id,
+   				'name' : name,
+   				'email' : email,
+   				'content' : content,
+   			},
+   			success:function(data){
+   				
+   				toastr.options = {
+   					  "closeButton": false,
+   					  "debug": false,
+   					  "positionClass": "toast-top-center",
+   					  "showDuration": "1000",
+   					  "hideDuration": "1000",
+   					  "timeOut": "5000",
+   					  "extendedTimeOut": "1000",
+   					  "showEasing": "swing",
+   					  "hideEasing": "linear",
+   					  "showMethod": "fadeIn",
+   					  "hideMethod": "fadeOut"
+   					}
+   				
+				//bootbox.alert(data.errmsg, function() {
+	  			//	location.reload();
+		        //}); 
+   			}   
+   		});
+ 	    
 			toastr.options = {
  					  "closeButton": false,
  					  "debug": false,
