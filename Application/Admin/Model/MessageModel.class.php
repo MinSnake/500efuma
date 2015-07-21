@@ -33,8 +33,8 @@ class MessageModel extends RelationModel {
 			array_push ( $temp, $status);
 			array_push ( $temp, $msg['ctm']);
 			$action = 
-					"<button class='btn btn-sm yellow showMsg' data-id='".$msg['id']."'>查看</button> " .
-					"<button class='btn btn-sm blue editMsg' data-id='".$msg['id']."' data-admin='".$msg['is_admin']."'>编辑</button> " .
+					"<button class='btn btn-sm blue showMsg' data-id='".$msg['id']."'>查看</button> " .
+// 					"<button class='btn btn-sm blue editMsg' data-id='".$msg['id']."' data-admin='".$msg['is_admin']."'>编辑</button> " .
 					"<a href='" . U('Message/delete',array('id'=>$msg['id'])) . "' class='btn red btn-sm'>删除</a> ";
 			array_push ( $temp, $action);
 			array_push ( $data, $temp );
