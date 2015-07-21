@@ -155,9 +155,17 @@ function getMail($to,$from,$title,$content,$url){
  */
 function getContent($content){
 	$content = htmlspecialchars($content);
-	$content = str_replace(" ","&nbsp",$content); //替换空格为
-	$content = nl2br($content); //将回车替换为
+	$content = str_replace(" ","&nbsp",$content); //替换空格为&nbsp
+	$content = nl2br($content); //将回车替换为<br>
 	return $content;
+}
+
+function getContent_decode($content){
+    $content = htmlspecialchars_decode($content);
+    $content = str_replace("&nbsp"," ",$content); //替换空格为&nbsp
+    $content = preg_replace('/<br\\s*?\/??>/i',chr(13),$content);
+    preg_replace('/ /i',' ',$content);
+    return $content;
 }
 
 /**

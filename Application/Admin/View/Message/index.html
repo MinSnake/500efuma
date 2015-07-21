@@ -26,9 +26,25 @@ hr {
 	border-bottom: 1px solid #FEFEFE;
 }
 .username{
-	font-size:14px;
+	font-size:17px;
 	font-family: 'Open Sans Condensed', sans-serif;
 	font-weight: 700;
+}
+.blog-page h4.media-heading span {
+	color: #000000;
+	font-size: 13px;
+	position: absolute;
+	right: 0;
+	top: 3px;
+}
+.list-content {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 14px;
+}
+.table-content {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	max-width: 400px;
 }
 </style>
 <div id="table-status" style="display:none;"></div>
@@ -47,7 +63,7 @@ hr {
 			<div class="portlet-body">
 				<div class="table-toolbar">
 					<div class="btn-group">
-						<a href="#" id="add-msg-btn" class="btn green">新增 <i class="fa fa-plus"></i></a>
+						<a href="javascript:;" id="add-msg-btn" class="btn green">新增 <i class="fa fa-plus"></i></a>
 					</div>
 					<div class="btn-group pull-right">
 						<button id="delete_all_button" class="btn red">
@@ -75,7 +91,7 @@ hr {
 		<!-- END EXAMPLE TABLE PORTLET-->
 		
 		<!-- 留言列表详情信息 -->
-		<div id="responsive" class="modal fade"  data-backdrop="false" tabindex="-1" data-width="90%" style="max-height: 600px;top:30%">
+		<div id="responsive" class="modal fade"  data-backdrop="false" tabindex="-1" data-width="90%" style="max-height: 600px;">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
 				<h4 class="modal-title">详细信息</h4>
@@ -84,7 +100,6 @@ hr {
 				<div class="row" id="list-info"></div>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn blue">确定</button>
 				<button type="button" data-dismiss="modal" class="btn red">关闭</button>
 			</div>
 		</div>
@@ -198,16 +213,32 @@ jQuery(document).ready(function() {
          $(this).parents('tr').toggleClass("active");
     });
     
+    var msg_id = 0;//message-id
+    
     //管理员新增留言
     $("body").on("click","#add-msg-btn",function(event){
+    	$("#addMsg .modal-title").html('新建留言');
     	$("#msg-name").parents(".col-md-6").hide();
     	$("#msg-email").parents(".col-md-6").hide();
     	$('#addMsg').modal('show');
     });
     
-    var msg_id = 0;
-    var msg_pid = 0;
-    var msg_tid = 0;
+    //编辑留言
+    $("body").on("click",".editMsg",function(event){
+    	$("#addMsg .modal-title").html('编辑留言');
+    	var is_admin = $(this).attr('data-admin');
+    	if (is_admin == 1){
+        	$("#msg-name").parents(".col-md-6").hide();
+        	$("#msg-email").parents(".col-md-6").hide();
+    	}else{
+        	$("#msg-name").parents(".col-md-6").show();
+        	$("#msg-email").parents(".col-md-6").show();
+    	}
+    	msg_id = $(this).attr('data-id');
+    	setinfo(msg_id);
+    	$('#addMsg').modal('show');
+    });
+    
     //保存留言内容
     $("body").on("click","#save-msg",function(event){
     	var name = $("#msg-name").val();
@@ -235,6 +266,22 @@ jQuery(document).ready(function() {
     		toastr.error('请不要提交空的留言');
     	}
     });
+    
+    function setinfo(id){
+    	 $.ajax({
+   			type:'post',
+   			url:'../Message/info',
+   			dataType:"json", 
+   			data:{
+   				'id' : id,
+   			},
+   			success:function(data){
+   		    	$("#msg-name").val(data.name);
+   		    	$("#msg-email").val(data.email);
+   		    	$("#msg-content").val(data.content);
+   			}   
+   		});
+    }
     
     //显示留言详情列表
     $("body").on("click", ".showMsg", function(event){ 

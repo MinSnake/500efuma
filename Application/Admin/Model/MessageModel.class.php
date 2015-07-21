@@ -1,6 +1,7 @@
 <?php
 namespace Admin\Model;
 use Think\Model\RelationModel;
+use Think\Exception;
 
 class MessageModel extends RelationModel {
 	
@@ -10,7 +11,7 @@ class MessageModel extends RelationModel {
 		$model = D('Admin/Message');
 		$list = $model
 				->alias('a')
-				->field('a.id,a.headimg_url,a.name,a.content,a.status,a.ctm,count(a.pid) as rnum')
+				->field('a.id,a.headimg_url,a.name,a.content,a.is_admin,a.status,a.ctm,count(a.pid) as rnum')
 				->join('left join __MESSAGE__ b on a.id=b.pid')
 				->order('a.ctm desc')
 				->where('a.pid=0')
@@ -26,14 +27,14 @@ class MessageModel extends RelationModel {
 			$headimg_url = "<img width='40px' src='".$msg['headimg_url']."'>";
 			array_push ( $temp, $headimg_url);
 			array_push ( $temp, $msg['name']);//
-			array_push ( $temp, $msg['content']);//
+			array_push ( $temp, "<p class='table-content'>".strip_tags($msg['content'])."</p>");//
 			array_push ( $temp, $msg['rnum']);//
 			$status = $this->getStatus_HTML($msg['status']);
 			array_push ( $temp, $status);
 			array_push ( $temp, $msg['ctm']);
 			$action = 
 					"<button class='btn btn-sm yellow showMsg' data-id='".$msg['id']."'>查看</button> " .
-					"<a href='" . U('Message/update',array('id'=>$msg['id'])) . "' class='btn blue btn-sm'>编辑</a> " .
+					"<button class='btn btn-sm blue editMsg' data-id='".$msg['id']."' data-admin='".$msg['is_admin']."'>编辑</button> " .
 					"<a href='" . U('Message/delete',array('id'=>$msg['id'])) . "' class='btn red btn-sm'>删除</a> ";
 			array_push ( $temp, $action);
 			array_push ( $data, $temp );
@@ -46,7 +47,7 @@ class MessageModel extends RelationModel {
 	public function getMessageList_By_Id($id){
 		$model = D('Admin/Message');
 		$list = $model->alias('a')
-				->field('a.id,a.headimg_url,a.name,a.content,a.status,a.ctm,b.id as bid,b.name as bname')
+				->field('a.id,a.headimg_url,a.name,a.content,a.is_admin,a.status,a.ctm,b.id as bid,b.name as bname')
 				->join('left join __MESSAGE__ b on a.tid=b.id')
 				->order('a.ctm asc')
 				->where('a.pid='.$id)

@@ -48,7 +48,7 @@ class MessageController extends AdminBaseController {
             $model = new \Admin\Model\MessageModel();
             $data['name'] = $_POST['name'];
             $data['email'] = $_POST['email'];
-            $data['content'] = $_POST['content'];
+            $data['content'] = getContent(trim($_POST['content']));
             $data['ip'] = GetIP();
             $data['ua'] = $_SERVER['HTTP_USER_AGENT'];
             //不为空，则不是新建的数据
@@ -62,7 +62,6 @@ class MessageController extends AdminBaseController {
                 $data['ctm'] = date('Y-m-d H:i:s',time());
                 $data['is_admin'] = 1;
                 $is_save = $model->data($data)->add($data);
-                $sql = $model->getLastSql();
             }
             $res['errcode'] = $is_save ? true : false;
             $res['errmsg'] = $is_save ? '操作成功' : $model->getError();
@@ -84,6 +83,14 @@ class MessageController extends AdminBaseController {
 		if($data['errcode'] == 0){
 			$this->redirect('Message/index');
 		}
+	}
+	
+	public function info(){
+	    $id = $_POST['id'];
+	    $model = new \Admin\Model\MessageModel();
+	    $info = $model->where('id='.$id)->find();
+	    $info['content'] = getContent_decode($info['content']);
+	    echo json_encode($info);
 	}
     
     

@@ -1,23 +1,23 @@
 <div class="col-md-12 blog-page">
 	<div class="media">
 		<!-- 一级 -->
-		<a href="#" class="pull-left"><img alt="" src="{$info.headimg_url}" class="media-object"></a>
+		<a href="javascript:;" class="pull-left"><img alt="" src="{$info.headimg_url}" class="media-object"></a>
 		<div class="media-body ">
-			<h4 class="media-heading"><font class="username">{$info.name}</font> <span>{$info.ctm} / <a href="#">Reply</a></span></h4>
-			<p id="content-one">{$info.content}</p>
+			<h4 class="media-heading"><font class="username">{$info.name}</font> <span>{$info.ctm} / <a class="editMsg" data-id="{$info.id}" data-admin="{$info.is_admin}"  href="javascript:;" style="color:#4B8DF8">编辑</a> / <a href="javascript:;" style="color:#4B8DF8">回复</a></span></h4>
+			<p id="content-one" class="list-content">{$info.content}</p>
 			<hr>
 			<!-- 二级 -->
 			<volist name="list" id="msg2" key="k">
 				<div class="media">
-					<a href="#" class="pull-left"><img alt="" src="{$msg2.headimg_url}" class="media-object"></a>
+					<a href="javascript:;" class="pull-left"><img alt="" src="{$msg2.headimg_url}" class="media-object"></a>
 					<div class="media-body">
 						<h4 class="media-heading">
 							<font class="username">#{$k} {$msg2.name} </font>
 							<if condition="$msg2.bname neq null ">
 								<font color="#5E7CD8" class="username">@{$msg2.bname}</font> 
 							</if>
-							<span>{$msg2.ctm} / <a href="#">Reply</a></span></h4>
-						<p>{$msg2.content}</p>
+							<span>{$msg2.ctm} / <a class="editMsg" data-id="{$msg2.id}" data-admin="{$msg2.is_admin}" href="javascript:;" style="color:#4B8DF8">编辑</a> / <a href="javascript:;" style="color:#4B8DF8">回复</a></span></h4>
+						<p class="list-content">{$msg2.content}</p>
 						<hr>
 					</div>
 				</div>
