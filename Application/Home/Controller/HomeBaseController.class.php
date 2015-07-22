@@ -22,7 +22,7 @@ class HomeBaseController extends Controller{
 		$this->tags();
 		$this->recent_posts();
 		$action = ACTION_NAME;//当前操作名  
-		if($action != 'index' && $action != 'listinfo' && $action != 'me' && $action != 'links'){
+		if($action != 'index' && $action != 'listinfo' && $action != 'me' && $action != 'links' && $action != 'message'){
 			//默认为index
 			$action = 'index';
 		}

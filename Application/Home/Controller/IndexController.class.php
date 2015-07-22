@@ -10,7 +10,6 @@ namespace Home\Controller;
  */
 class IndexController extends HomeBaseController {
 	
-	
 	/** 
 	* 首页显示 
 	* @author Saki <zha_zha@outlook.com>
@@ -72,8 +71,6 @@ class IndexController extends HomeBaseController {
 		$this->display();
 	}
 	
-	
-	
 	/** 
 	* 关于我
 	* @author Saki <zha_zha@outlook.com>
@@ -96,7 +93,7 @@ class IndexController extends HomeBaseController {
 		$company_list = $company_model->where($map)->select();
 		/*首领击杀*/
 		$project_list = $pro_model->where($map)->select();
-		/**/
+		/*数据*/
 		$this->assign('info',$info);
 		$this->assign('skill_list',$skill_list);
 		$this->assign('company_list',$company_list);
@@ -104,12 +101,32 @@ class IndexController extends HomeBaseController {
 		$this->display();
 	}
 	
+	/**
+	 * 友情链接
+	 * @author Saki <zha_zha@outlook.com>
+	 * @date 2015-7-22下午11:22:20
+	 * @version v1.0.0
+	 */
 	public function links(){
 	    $links_model = new \Admin\Model\LinksModel();
 	    $map['status'] = 1;
 	    $links_list = $links_model->where($map)->select();
-	    /**/
+	    /*数据*/
 	    $this->assign('links_list',$links_list);
 	    $this->display();
 	}
+	
+	/**
+	 * 留言板
+	 * @author Saki <zha_zha@outlook.com>
+	 * @date 2015-7-22下午11:22:53
+	 * @version v1.0.0
+	 */
+	public function message(){
+		$model = new \Admin\Model\MessageModel();
+		
+// 		$list = $model->getMessageList($start, $length);
+		$this->display();
+	}
+	
 }
