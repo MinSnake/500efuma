@@ -34,7 +34,6 @@ class MessageModel extends RelationModel {
 			array_push ( $temp, $msg['ctm']);
 			$action = 
 					"<button class='btn btn-sm blue showMsg' data-id='".$msg['id']."'>查看</button> " .
-// 					"<button class='btn btn-sm blue editMsg' data-id='".$msg['id']."' data-admin='".$msg['is_admin']."'>编辑</button> " .
 					"<a href='" . U('Message/delete',array('id'=>$msg['id'])) . "' class='btn red btn-sm'>删除</a> ";
 			array_push ( $temp, $action);
 			array_push ( $data, $temp );
@@ -47,7 +46,7 @@ class MessageModel extends RelationModel {
 	public function getMessageList_By_Id($id){
 		$model = D('Admin/Message');
 		$list = $model->alias('a')
-				->field('a.id,a.headimg_url,a.name,a.content,a.is_admin,a.status,a.ctm,b.id as bid,b.name as bname')
+				->field('a.id,a.pid,a.tid,a.headimg_url,a.name,a.content,a.is_admin,a.status,a.ctm,b.id as bid,b.name as bname')
 				->join('left join __MESSAGE__ b on a.tid=b.id')
 				->order('a.ctm asc')
 				->where('a.pid='.$id)

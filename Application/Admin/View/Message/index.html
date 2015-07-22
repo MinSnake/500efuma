@@ -91,7 +91,7 @@ hr {
 		<!-- END EXAMPLE TABLE PORTLET-->
 		
 		<!-- 留言列表详情信息 -->
-		<div id="responsive" class="modal fade"  data-backdrop="false" tabindex="-1" data-width="90%" style="max-height: 600px;">
+		<div id="responsive" class="modal fade"  data-backdrop="false" tabindex="-1" data-width="80%" >
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
 				<h4 class="modal-title">详细信息</h4>
@@ -105,7 +105,7 @@ hr {
 		</div>
 		
 		<!-- 管理员添加新的留言 -->
-		<div id="addMsg" class="modal fade"  data-backdrop="false" tabindex="-1" data-width="80%">
+		<div id="addMsg" class="modal fade"  data-backdrop="false" tabindex="-1" data-width="70%">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
 				<h4 class="modal-title">新建留言</h4>
@@ -150,6 +150,15 @@ hr {
 <!-- END PAGE LEVEL PLUGINS -->
 <script>
 jQuery(document).ready(function() {    
+	
+	//留言详情模态框根据浏览器变换大小
+	setInterval(function(){
+		var mainbody = $("#frame").contents().find(".main_body");
+		var bodyheight = $(".main_body").height();
+		$("#responsive").css("max-height",bodyheight-50);
+		$("#addMsg").css("max-height",bodyheight-50);
+	},300)
+	
 	
     $('#dblist').dataTable({
     	"bAutoWidth":true,
@@ -214,12 +223,18 @@ jQuery(document).ready(function() {
     });
     
     var msg_id = 0;//message-id
+	var msg_pid = 0;
+    var msg_tid = 0;
     
     //管理员新增留言
     $("body").on("click","#add-msg-btn",function(event){
     	$("#addMsg .modal-title").html('新建留言');
     	$("#msg-name").parents(".col-md-6").hide();
     	$("#msg-email").parents(".col-md-6").hide();
+    	cleaninfo();
+        msg_id = 0;
+    	msg_pid = 0;
+        msg_tid = 0;
     	$('#addMsg').modal('show');
     });
     
@@ -239,6 +254,17 @@ jQuery(document).ready(function() {
     	$('#addMsg').modal('show');
     });
     
+    //回复留言
+    $("body").on("click",".reMsg",function(event){
+    	$("#addMsg .modal-title").html('回复留言');
+    	$("#msg-name").parents(".col-md-6").hide();
+    	$("#msg-email").parents(".col-md-6").hide();
+    	cleaninfo();
+    	msg_pid = $(this).attr('data-pid');
+    	msg_tid = $(this).attr('data-tid');
+    	$('#addMsg').modal('show');
+    });
+    
     //保存留言内容
     $("body").on("click","#save-msg",function(event){
     	var name = $("#msg-name").val();
@@ -251,6 +277,8 @@ jQuery(document).ready(function() {
 	   			dataType:"json", 
 	   			data:{
 	   				'id' : msg_id,
+	   				'pid' : msg_pid,
+	   				'tid' : msg_tid,
 	   				'name' : name,
 	   				'email' : email,
 	   				'content' : content,
@@ -266,6 +294,12 @@ jQuery(document).ready(function() {
     		toastr.error('请不要提交空的留言');
     	}
     });
+    
+    function cleaninfo(){
+    	$("#msg-name").val('');
+    	$("#msg-email").val('');
+    	$("#msg-content").val('');
+    }
     
     function setinfo(id){
     	 $.ajax({

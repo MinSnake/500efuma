@@ -56,6 +56,8 @@ class MessageController extends AdminBaseController {
                 $map['id'] = $_POST['id'];
                 $is_save = $model->where($map)->save($data);
             }else{//管理员留言
+                $data['pid'] = $_POST['pid'];
+                $data['tid'] = $_POST['tid'];
                 $data['headimg_url'] = C('ADMIN_HEADIMG_URL');
                 $data['name'] = C('ADMIN_NAME');
                 $data['email'] = C('ADMIN_EMAIL');
