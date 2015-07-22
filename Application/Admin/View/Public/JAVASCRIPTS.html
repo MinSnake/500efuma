@@ -19,13 +19,32 @@
 	jQuery(document).ready(function() {    
 		App.init();
 		
+		//自动加载页面的宽高
+		var windowheight = $(window).height();
+		//保证foot在底部
+		$(".page-content").css("min-height",'');
+		$(".page-content").css("min-height",windowheight-75+'px');
+		//改变浏览器大小的时候自动跟随变化
+		$(window).resize(function() {
+		    var height = $(this).height();
+			$(".page-content").css("min-height",'');
+			$(".page-content").css("min-height",height-75+'px');
+		});
+		
 		//循环执行任务
 		var task;
 		
 		//iframe框自动适应高度
 		$("#frame").load(function(){
 			changeFrame();
-			task = setInterval(checkFrameStatus,100);
+			var task = setInterval(function(){
+				var tableStatusObj = $("#frame").contents().find("#table-status");
+				var status = tableStatusObj.attr('data-status');	
+				if(status == 'ok'){
+					changeFrame();
+					clearInterval(task);
+				}
+			},100);
 		});
 
 		function changeFrame(){
@@ -37,17 +56,10 @@
 			}
 			var mainheight = bodyheight+addheight;
 			$("#frame").height(mainheight);
+			var page_content = $(".page-content").height();
+			$("#frame").height(page_content-140);
+			$("#frame").contents().find("html").height(page_content-140);
 		}
-		
-		function checkFrameStatus(){
-			var tableStatusObj = $("#frame").contents().find("#table-status");
-			var status = tableStatusObj.attr('data-status');	
-			if(status == 'ok'){
-				changeFrame();
-				clearInterval(task);
-			}
-		}
-
 		
 		//1级菜单的点击事件处理
 		$(".menubar").click(function(){

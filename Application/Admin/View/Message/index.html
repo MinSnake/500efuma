@@ -154,7 +154,7 @@ jQuery(document).ready(function() {
 	//留言详情模态框根据浏览器变换大小
 	setInterval(function(){
 		var mainbody = $("#frame").contents().find(".main_body");
-		var bodyheight = $(".main_body").height();
+		var bodyheight = $("html").height();
 		$("#responsive").css("max-height",bodyheight-50);
 		$("#addMsg").css("max-height",bodyheight-50);
 	},300)

@@ -88,7 +88,7 @@ From Medium Devices Up To Larger Devices
   	.page-content { 
   		margin-left: 225px; 
 		margin-top: 0px;
-		min-height: 760px; 
+		/*min-height: 760px; */
 		padding: 25px 20px 20px 20px;
 	}
 

@@ -947,7 +947,7 @@ Page content
     padding: 20px;
     margin-left: 225px; 
     margin-top: 0px;
-    min-height: 760px;
+    /*min-height: 760px;*/
 }
 
 .ie8 .page-sidebar-fixed .page-content {
