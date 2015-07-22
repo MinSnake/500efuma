@@ -79,11 +79,15 @@ class MessageController extends AdminBaseController {
     }
     
     public function delete(){
-		$id = $_GET['id'];
+		$id = $_REQUEST['id'];
 		$model = new \Admin\Model\MessageModel();
 		$data = $model->deleteMessage($id);
-		if($data['errcode'] == 0){
-			$this->redirect('Message/index');
+		if (isset($_POST['type']) && $_POST['type'] == 'ajax'){//调用类型
+			echo json_encode($data);
+		}else{
+			if($data['errcode'] == 0){
+				$this->redirect('Message/index');
+			}
 		}
 	}
 	

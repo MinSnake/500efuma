@@ -7,7 +7,8 @@
 				<font class="username">{$info.name}</font> 
 				<span>{$info.ctm} / 
 					<a class="editMsg" data-id="{$info.id}" data-admin="{$info.is_admin}" href="javascript:;" style="color:#4B8DF8">编辑</a> / 
-					<a href="javascript:;" style="color:#4B8DF8" class="reMsg" data-id="{$info.id}" data-pid='{$info.id}' data-tid='0'>回复</a>
+					<a href="javascript:;" style="color:#4B8DF8" class="reMsg" data-id="{$info.id}" data-pid='{$info.id}' data-tid='0'>回复</a> / 
+					<a href="javascript:;" style="color:#FC1A1A" class="delMsg" data-id="{$info.id}">删除</a>
 				</span>
 			</h4>
 			<p id="content-one" class="list-content">{$info.content}</p>
@@ -24,7 +25,8 @@
 							</if>
 							<span>{$msg2.ctm} / 
 								<a class="editMsg" data-id="{$msg2.id}" data-admin="{$msg2.is_admin}" href="javascript:;" style="color:#4B8DF8">编辑</a> / 
-								<a href="javascript:;" style="color:#4B8DF8" class="reMsg" data-id="{$msg2.id}" data-pid='{$msg2.pid}' data-tid="{$msg2.id}">回复</a>
+								<a href="javascript:;" style="color:#4B8DF8" class="reMsg" data-id="{$msg2.id}" data-pid='{$msg2.pid}' data-tid="{$msg2.id}">回复</a> / 
+								<a href="javascript:;" style="color:#FC1A1A" class="delMsg" data-id="{$msg2.id}">删除</a>
 							</span>
 						</h4>
 						<p class="list-content">{$msg2.content}</p>

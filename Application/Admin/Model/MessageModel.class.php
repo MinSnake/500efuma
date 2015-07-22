@@ -55,8 +55,14 @@ class MessageModel extends RelationModel {
 	}
 	
 	public function deleteMessage($id){
+		$model = D('Admin/Message');
 		try {
-			$isdelete = D('Admin/Message')->delete($id);
+			$info = D('Admin/Message')->where('id='.$id)->find();
+			if ($info['pid'] == 0){//一级留言，删除这个留言下所有相关的数据
+				$isdelete = $model->where("id=$id or pid=$id")->delete();
+			}else{
+				$isdelete = $model->delete($id);
+			}
 			$errcode = $isdelete ? 0 : 500;
 			$msg = $isdelete ? '删除成功' : '删除失败';
 		} catch (Exception $e) {
@@ -64,7 +70,7 @@ class MessageModel extends RelationModel {
 			$msg = $e->getMessage();
 		}
 		$res['errcode'] = $errcode;
-		$res['msg'] = $msg;
+		$res['errmsg'] = $msg;
 		return $res;
 	}
 	

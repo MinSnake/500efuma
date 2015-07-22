@@ -265,6 +265,26 @@ jQuery(document).ready(function() {
     	$('#addMsg').modal('show');
     });
     
+    //删除留言
+    $("body").on("click",'.delMsg',function(){
+    	var id = $(this).attr('data-id');
+    	$.ajax({
+   			type:'post',
+   			url:'../Message/delete',
+   			dataType:"json", 
+   			data:{
+   				'id' : id,
+   				'type' : 'ajax',
+   			},
+   			success:function(data){
+   				toastr.options.onHidden = function() { 
+   					location.reload(); 
+  				}
+   				toastr.success(data.errmsg);
+   			}   
+   		});
+    });
+    
     //保存留言内容
     $("body").on("click","#save-msg",function(event){
     	var name = $("#msg-name").val();
