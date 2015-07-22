@@ -37,6 +37,7 @@ return array(
 	'APP_SUB_DOMAIN_RULES'=>array(
 			'admin'=>array('Admin/'),  // admin域名指向Admin分组
 			'wechat'=>array('Wechat/'),
+			'mahjong'=>array('Mahjong/'),
 	),
 	//微信公众号配置	
 	'WECHAT' => array(

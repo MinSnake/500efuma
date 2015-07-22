@@ -271,5 +271,19 @@ function resolveQQ($qq){
 }
 
 
-
+/**
+ * @Title: json_chinese
+ * @todo 处理返回的json数据，将其中的16进制中文进行转换显示
+ * @author Saki <ilulu4ever816@gmail.com>
+ */
+function json_chinese($arr){
+	foreach ($arr as $k=>$obj){
+// 		if (is_array($obj)){
+// 			json_chinese($obj);
+// 		}
+		$arr[$k] = urlencode($obj);
+	}
+	$json = urldecode(json_encode($arr));
+	return $json;
+}
 
