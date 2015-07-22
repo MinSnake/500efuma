@@ -8,10 +8,10 @@ namespace Mahjong\Model;
  */
 class BambooModel{
 	
-	public $number;// 1-9
-	public $dora_number;//dora个数，默认1个
-	public $dora_tile_no;//制定赤牌号码，默认为5条，默认编号14
-	public $dora;//1-赤 0-普通
+// 	public $number;// 1-9
+// 	public $dora_number;//dora个数，默认1个
+// 	public $dora_tile_no;//制定赤牌号码，默认为5条，默认编号14
+// 	public $dora;//1-赤 0-普通
 	private $bamboo_list;//牌组列表
 	private $tile_type = 'bamboo';
 	private $tile_type_cn = '条';
@@ -43,7 +43,7 @@ class BambooModel{
 	 * @author Saki <ilulu4ever816@gmail.com>
 	 * @date 2015-07-23 上午 2:27:19 
 	 */
-	function __construct_dora($fn,$dora_number=1,$dora_tile_no=5){
+	private function __construct_dora($fn,$dora_number=1,$dora_tile_no=5){
 		$this->set_bamboo_list($dora_number,$dora_tile_no);
 	}
 	
@@ -53,7 +53,7 @@ class BambooModel{
 	 * @author Saki <ilulu4ever816@gmail.com>
 	 * @date 2015-07-23 上午 2:27:19 
 	 */
-	function __construct_no_dora($fn,$dora_number=0,$dora_tile_no=0){
+	private function __construct_no_dora($fn,$dora_number=0,$dora_tile_no=0){
 		$this->set_bamboo_list();
 	}
 	
