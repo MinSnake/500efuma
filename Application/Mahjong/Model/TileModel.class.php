@@ -86,16 +86,6 @@ class TileModel {
     }
     
     /**
-     * @todo 随机获取牌组中的一张索牌
-     * @author Saki <ilulu4ever816@gmail.com>
-     * @date 2015-07-23 上午 2:27:19
-     */
-    public function get_rand_bamboo_tile(){
-        $bamboo_tile = array_rand($this->bamboo_list);
-        return $this->bamboo_list[$bamboo_tile];
-    }
-    
-    /**
      * @todo 获取整个索子牌组列表
      * @author Saki <ilulu4ever816@gmail.com>
      * @date 2015-07-23 上午 2:27:19
