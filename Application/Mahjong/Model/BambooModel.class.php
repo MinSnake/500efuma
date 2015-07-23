@@ -8,13 +8,14 @@ namespace Mahjong\Model;
  */
 class BambooModel{
 	
-// 	public $number;// 1-9
-// 	public $dora_number;//dora个数，默认1个
-// 	public $dora_tile_no;//制定赤牌号码，默认为5条，默认编号14
-// 	public $dora;//1-赤 0-普通
-	private $bamboo_list;//牌组列表
+    public $tile_no;        //牌的编号
+    public $tile_dora;      //是否为dora牌
+    public $tile_name;      //牌的名字
+    public $tile_name_cn;   //牌的中文名字
+    
 	private $tile_type = 'bamboo';
-	private $tile_type_cn = '条';
+	private $tile_type_cn = '索';
+	private $bamboo_list;//牌组列表
 	private $bamboo_no = array(
 		10 ,11 ,12 ,13 ,14 ,15 ,16 ,17 ,18,
 		19 ,20 ,21 ,22 ,23 ,24 ,25 ,26 ,27,
@@ -59,23 +60,21 @@ class BambooModel{
 	
 	/**
 	 * @todo  设置牌组中的dora
-	 * @param $is_dora_no		当前便利到牌的数字
+	 * @param $is_dora_no		当前遍历到牌的数字
 	 * @param $dora_tile_no		设置dora的牌数字
 	 * @param $dora_count		当前已经设置的dora个数
 	 * @param $dora_number		设置的dora个数
+	 * @param $type		        设置dora类型，默认为有dora的配置
 	 * @author Saki <ilulu4ever816@gmail.com>
 	 * @date 2015-07-23 上午 2:27:19
 	 */
-	private function set_dora($is_dora_no,$dora_tile_no,$dora_count,$dora_number){
-		if ($is_dora_no === $dora_tile_no){//为指定的dora牌数字
-			$temp['tile_dora'] = ($dora_count < $dora_number && $dora_count < 4) ? 1 : 0;
+	private function set_dora($bamboo_model ,$is_dora_no,$dora_tile_no,$dora_count,$dora_number ,$type){
+	    $bamboo_model->tile_dora = 0;
+		if ($type && $is_dora_no === $dora_tile_no){//为指定的dora牌数字
+			$bamboo_model->tile_dora = ($dora_count < $dora_number && $dora_count < 4) ? 1 : 0;
 			$dora_count ++;
-		}else{
-			$temp['tile_dora'] = 0;
 		}
-		$data['temp'] = $temp;
-		$data['dora_count'] = $dora_count;
-		return $data;
+		return $dora_count;
 	}
 	
 	/**
@@ -86,21 +85,20 @@ class BambooModel{
 	 * @author Saki <ilulu4ever816@gmail.com>
 	 * @date 2015-07-23 上午 2:27:19
 	 */
-	private function set_bamboo_list($dora_number,$dora_tile_no,$type='dora'){
+	private function set_bamboo_list($dora_number,$dora_tile_no,$type=true){
 		$bamboo_list = array();
 		$dora_count = 0;
 		foreach ($this->bamboo_no as $k=>$bamboo){
+		    $bamboo_model = new self();
 			$is_dora_no = $bamboo % 9 == 0 ? 9 : $bamboo % 9;
-			if ($type === 'dora'){
-				$data = $this->set_dora($is_dora_no, $dora_tile_no, $dora_count, $dora_number);
-				$temp = $data['temp'];
-				$dora_count = $data['dora_count'];
-			}
-			$temp['tile_no'] = $bamboo;
-			$temp['tile_type'] = $this->tile_type;
-			$temp['tile_type_cn'] = $this->tile_type_cn;
-			$temp['tile_name_cn'] = $is_dora_no . $this->tile_type_cn;
-			array_push($bamboo_list, $temp);
+			//设置牌的属性
+			$dora_count = $this->set_dora($bamboo_model ,$is_dora_no, $dora_tile_no, $dora_count, $dora_number ,$type);
+            $bamboo_model->tile_no = $bamboo;
+            $bamboo_model->tile_type = $this->tile_type;
+            $bamboo_model->tile_type_cn = $this->tile_type_cn;
+            $bamboo_model->tile_name_cn = $is_dora_no . $this->tile_type_cn;
+            $bamboo_model->tile_name = $is_dora_no . $this->tile_type;
+			array_push($bamboo_list, $bamboo_model);
 		}
 		$this->bamboo_list = $bamboo_list;
 	}
