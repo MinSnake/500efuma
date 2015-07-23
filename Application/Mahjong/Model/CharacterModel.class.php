@@ -40,7 +40,7 @@ class CharacterModel {
 	    $tile_list = array();
 	    $tile_type = $this->tile_type;
 	    $tile_id_list = $this->character_id_list;
-	    $tile_list = set_tile_list($tile_list, $tile_id_list, $tile_type, $number_dora, $dora_tile_no);
+	    $tile_list = set_suit_list($tile_list, $tile_id_list, $tile_type, $number_dora, $dora_tile_no);
 	    $this->character_list = $tile_list;
 	}
 	
@@ -54,7 +54,7 @@ class CharacterModel {
 	    $tile_list = array();
 	    $tile_type = $this->tile_type;
 	    $tile_no_list = $this->character_id_list;
-	    $tile_list = set_tile_list($tile_list, $tile_no_list, $tile_type, $number_dora, $dora_tile_no,false);
+	    $tile_list = set_suit_list($tile_list, $tile_no_list, $tile_type, $number_dora, $dora_tile_no,false);
 	    $this->character_list = $tile_list;
 	}
 	

@@ -40,7 +40,7 @@ class BambooModel{
 	    $tile_list = array();
 	    $tile_type = $this->tile_type;
 	    $tile_id_list = $this->bamboo_id_list;
-	    $tile_list = set_tile_list($tile_list, $tile_id_list, $tile_type, $number_dora, $dora_tile_no);
+	    $tile_list = set_suit_list($tile_list, $tile_id_list, $tile_type, $number_dora, $dora_tile_no);
 	    $this->bamboo_list = $tile_list;
 	}
 	
@@ -54,7 +54,7 @@ class BambooModel{
 	    $tile_list = array();
 	    $tile_type = $this->tile_type;
 	    $tile_no_list = $this->bamboo_id_list;
-	    $tile_list = set_tile_list($tile_list, $tile_no_list, $tile_type, $number_dora, $dora_tile_no,false);
+	    $tile_list = set_suit_list($tile_list, $tile_no_list, $tile_type, $number_dora, $dora_tile_no,false);
 	    $this->bamboo_list = $tile_list;
 	}
 	

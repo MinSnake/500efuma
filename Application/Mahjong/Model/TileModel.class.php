@@ -41,9 +41,12 @@ class TileModel {
     public $tile_dora_points;   //dora牌的番数
     public $tile_type;          //牌的类型
     
-    private $dot_list;       //筒列表
-    private $bamboo_list;    //索列表    
-    private $character_list; //万列表
+    
+    private $dot_list;          //筒列表
+    private $bamboo_list;       //索列表    
+    private $character_list;    //万列表
+    private $wind_list;         //风牌列表
+    private $dragon_list;       //三元牌列表
     
     /**
      * @Title: __construct 
@@ -62,7 +65,7 @@ class TileModel {
     function __construct_jp($fn){
         //P
         $dot_model = new \Mahjong\Model\DotModel('dora');
-        $this->dot_list = $dot_model->getBambooList();
+        $this->dot_list = $dot_model->getDotList();
         //S
         $bamboo_model = new \Mahjong\Model\BambooModel('dora');
         $this->bamboo_list = $bamboo_model->getBambooList();
@@ -70,7 +73,16 @@ class TileModel {
         $character_model = new \Mahjong\Model\CharacterModel('dora');
         $this->character_list = $character_model->getCharacterList();
         //字风
+        $wind_model = new \Mahjong\Model\WindModel('no_dora');
+        $this->wind_list = $wind_model->getWindList();
         //三元
+        $dragon_model = new \Mahjong\Model\DragonModel('no_dora');
+        $this->dragon_list = $dragon_model->getDragonList();
+    }
+    
+    public function get_tile_list (){
+        $tile_list = array_merge($this->dot_list,$this->bamboo_list,$this->character_list,$this->wind_list,$this->dragon_list);
+        return $tile_list;
     }
     
     /**
@@ -100,4 +112,5 @@ class TileModel {
         return $this->character_list;
     }
 	
+    
 }

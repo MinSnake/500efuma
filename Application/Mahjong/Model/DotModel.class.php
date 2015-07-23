@@ -40,7 +40,7 @@ class DotModel {
 	    $tile_list = array();
 	    $tile_type = $this->tile_type;
 	    $tile_id_list = $this->dot_id_list;
-	    $tile_list = set_tile_list($tile_list, $tile_id_list, $tile_type, $number_dora, $dora_tile_no);
+	    $tile_list = set_suit_list($tile_list, $tile_id_list, $tile_type, $number_dora, $dora_tile_no);
 	    $this->dot_list = $tile_list;
 	}
 	
@@ -54,7 +54,7 @@ class DotModel {
 	    $tile_list = array();
 	    $tile_type = $this->tile_type;
 	    $tile_no_list = $this->dot_id_list;
-	    $tile_list = set_tile_list($tile_list, $tile_no_list, $tile_type, $number_dora, $dora_tile_no,false);
+	    $tile_list = set_suit_list($tile_list, $tile_no_list, $tile_type, $number_dora, $dora_tile_no,false);
 	    $this->dot_list = $tile_list;
 	}
 	
@@ -75,7 +75,7 @@ class DotModel {
 	 * @author Saki <ilulu4ever816@gmail.com>
 	 * @date 2015-07-23 上午 2:27:19
 	 */
-	public function getBambooList(){
+	public function getDotList(){
 		return $this->dot_list;;
 	}
 	

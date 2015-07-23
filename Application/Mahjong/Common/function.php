@@ -31,11 +31,29 @@ function set_dora($tile_model,$has_dora,$dora_count,$number_dora,$dora_tile_no,$
  * @param  $dora_tile_no
  * @author Saki <ilulu4ever816@gmail.com>
  */
-function set_tile_list($tile_list,$tile_id_list,$tile_type,$number_dora,$dora_tile_no,$has_dora=true){
+function set_suit_list($tile_list,$tile_id_list,$tile_type,$number_dora,$dora_tile_no,$has_dora=true){
     $dora_count = 0;//dora总数
     foreach ($tile_id_list as $tile_id){
         $tile_model = new \Mahjong\Model\TileModel();
         $tile_no = $tile_id % 9 == 0 ? 9 : $tile_id % 9;
+        $dora_count = set_dora($tile_model, $has_dora, $dora_count, $number_dora, $dora_tile_no, $tile_no);
+        $tile_model->tile_id = $tile_id;
+        $tile_model->tile_no = $tile_no;
+        $tile_model->tile_type = $tile_type;
+        array_push($tile_list, $tile_model);
+    }
+    return $tile_list;
+}
+
+function set_honor_tile_list($tile_list,$tile_id_list,$tile_type,$number_dora,$dora_tile_no,$has_dora=true,$type=true){
+    $dora_count = 0;//dora总数
+    foreach ($tile_id_list as $tile_id){
+        $tile_model = new \Mahjong\Model\TileModel();
+        if($type){//东南西北-true   白发中-false
+            $tile_no = $tile_id % 4 == 0 ? 4 : $tile_id % 4;
+        }else{
+            $tile_no = $tile_id % 3;
+        }
         $dora_count = set_dora($tile_model, $has_dora, $dora_count, $number_dora, $dora_tile_no, $tile_no);
         $tile_model->tile_id = $tile_id;
         $tile_model->tile_no = $tile_no;
