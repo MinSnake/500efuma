@@ -4,11 +4,18 @@ use Think\Controller;
 
 class IndexController extends Controller {
 	
-	public function index(){
-		$tile_model = new \Mahjong\Model\TileModel('jp');
+	
+	public function tilelist(){
+	    $name = $_GET['name'];
+		$tile_model = new \Mahjong\Model\TileModel($name);
 		$list = $tile_model->get_tile_list();
+		shuffle($list);
 		echo json_encode($list,JSON_UNESCAPED_UNICODE);
 	}
+	
+	
+	
+	
 	
 	
 }
