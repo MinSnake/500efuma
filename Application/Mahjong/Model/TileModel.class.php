@@ -1,4 +1,5 @@
 <?php
+namespace Mahjong\Model;
 /**
  * @todo 一张麻将牌的牌面
  * @author Saki <ilulu4ever816@gmail.com>
@@ -7,13 +8,10 @@
  * 
  *【数字牌】
  * 筒 ： 1-9 * 4   （1赤）5筒
- * 1 2 3 4 5 6 7 8 9
  * 
  * 条 ： 1-9 * 4   （1赤）5条
- * 10 11 12 13 14 15 16 17 18 
  * 
  * 万 ： 1-9 * 4   （1赤）5万
- * 19 20 21 22 23 24 25 26 27
  * 
  *【字风】
  * 东 ： 1 * 4
@@ -26,7 +24,6 @@
  * 中 ： 1 * 4
  * 白 ： 1 * 4
  * 
- * 
  * 拿牌后每人13张，庄家14张
  * 
  * 牌山：1张
@@ -38,10 +35,16 @@
  */
 class TileModel {
 
-	public $name;
-	public $number;
-	public $dora;//赤
-	
+    public $tile_id;            //牌的编号
+    public $tile_no;            //牌的数字
+    public $tile_dora;          //是否为dora牌
+    public $tile_dora_points;   //dora牌的番数
+    public $tile_type;          //牌的类型
+    
+    private $dot_list;       //筒列表
+    private $bamboo_list;    //索列表    
+    private $character_list; //万列表
+    
     /**
      * @Title: __construct 
      * @todo 总的构造方法,根据调用的方法名进行处理
@@ -56,31 +59,45 @@ class TileModel {
         }
     }
     
-    /**
-     * @Title: __construct_register
-     * @todo 调用注册方法时使用的构造方法
-     * @param $conf_id  会员系统ID
-     * @author Saki <ilulu4ever816@gmail.com>
-     */
-    function __construct_register($fn,$conf_id,$card_id,$tenant_id,$wx_wui_id,$json){
-        if ($conf_id && $card_id){
-            $this->conf_id = $conf_id;
-            $this->card_id = $card_id;
-            $this->wx_wui_id = $wx_wui_id;
-            $this->tenant_id = $tenant_id;
-            $this->json = $json;
-            $this->checkRegisterParm($conf_id, $card_id, $json);
-        }else{
-            $res_json = WxTool::json_chinese(1, '注册参数缺失', true);
-            exit($res_json);
-        }
+    function __construct_jp($fn){
+        //P
+        $dot_model = new \Mahjong\Model\DotModel('dora');
+        $this->dot_list = $dot_model->getBambooList();
+        //S
+        $bamboo_model = new \Mahjong\Model\BambooModel('dora');
+        $this->bamboo_list = $bamboo_model->getBambooList();
+        //M
+        $character_model = new \Mahjong\Model\CharacterModel('dora');
+        $this->character_list = $character_model->getCharacterList();
+        //字风
+        //三元
     }
-	
-	
-	
-	
-	
-	
-	
+    
+    /**
+     * @todo 随机获取牌组中的一张索牌
+     * @author Saki <ilulu4ever816@gmail.com>
+     * @date 2015-07-23 上午 2:27:19
+     */
+    public function get_rand_bamboo_tile(){
+        $bamboo_tile = array_rand($this->bamboo_list);
+        return $this->bamboo_list[$bamboo_tile];
+    }
+    
+    /**
+     * @todo 获取整个索子牌组列表
+     * @author Saki <ilulu4ever816@gmail.com>
+     * @date 2015-07-23 上午 2:27:19
+     */
+    public function get_bamboo_list(){
+        return $this->bamboo_list;
+    }
+    
+    public function get_dot_list(){
+        return $this->dot_list;
+    }
+    
+    public function get_character_list(){
+        return $this->character_list;
+    }
 	
 }

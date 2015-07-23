@@ -5,12 +5,10 @@ use Think\Controller;
 class IndexController extends Controller {
 	
 	public function index(){
-		$bamboo_model = new \Mahjong\Model\BambooModel('dora');
-		$bamboo_arr = $bamboo_model->getBambooList();
-// 		var_dump($bamboo_arr);
-		echo json_encode($bamboo_arr,JSON_UNESCAPED_UNICODE);
-// 		$bamboo_tile = $bamboo_model->getTile();
-// 		echo json_encode($bamboo_tile,JSON_UNESCAPED_UNICODE);
+		$tile_model = new \Mahjong\Model\TileModel('jp');
+		echo json_encode($tile_model->get_dot_list(),JSON_UNESCAPED_UNICODE);
+		echo json_encode($tile_model->get_bamboo_list(),JSON_UNESCAPED_UNICODE);
+		echo json_encode($tile_model->get_character_list(),JSON_UNESCAPED_UNICODE);
 	}
 	
 	
