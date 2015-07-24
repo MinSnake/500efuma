@@ -3,7 +3,11 @@ namespace Mahjong\Controller;
 use Think\Controller;
 
 class IndexController extends Controller {
-	
+    
+    public function _initialize(){
+        layout(false);
+    }
+    
 	public function tilelist(){
 	    $name = $_GET['name'];
 		$tile_model = new \Mahjong\Model\TileModel($name);
@@ -15,6 +19,10 @@ class IndexController extends Controller {
 	public function dice(){
 	    $dice = new \Mahjong\Model\DiceModel();
 	    echo $dice->get_dice_json();
+	}
+	
+	public function game(){
+	    $this->display();
 	}
 	
 	
