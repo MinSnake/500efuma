@@ -8,6 +8,10 @@ class IndexController extends Controller {
         layout(false);
     }
     
+    public function info(){
+    	phpinfo();
+    }
+    
 	public function tilelist(){
 	    $name = $_GET['name'];
 		$tile_model = new \Mahjong\Model\TileModel($name);
