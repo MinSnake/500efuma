@@ -7,4 +7,4 @@
   RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]
 </IfModule>
 Order Deny,Allow
-Deny from 188.143.234.155
+Deny from 188.143.1
