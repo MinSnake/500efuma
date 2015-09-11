@@ -8,3 +8,4 @@
 </IfModule>
 Order Deny,Allow
 Deny from 188.143.1
+Deny from 116.30.1
