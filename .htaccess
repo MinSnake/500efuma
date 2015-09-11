@@ -7,6 +7,5 @@
   RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]
 </IfModule>
 order allow,deny  
-deny from 110.120.16.11  
-deny from 188.143. 116.30.
+deny from 188.143.
 allow from all  
