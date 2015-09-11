@@ -6,6 +6,6 @@
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]
 </IfModule>
-Order Deny,Allow
-Deny from 188.143.1
-Deny from 116.30.1
+Order Allow,Deny
+Allow from all
+Deny from 188.143.1 116.30.1
