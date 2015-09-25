@@ -28,10 +28,29 @@ class IndexController extends HomeBaseController {
 		//分页数据处理
 		$Parsedown = new \Org\Markdown\Parsedown;
 		$list = $model->relation(true)->where('status=1')->order('ctm desc')->limit ($Page->firstRow.','.$Page->listRows)->select ();
+		//aid array
+		$aid_arr = array();
+		foreach ($list as $tmp){
+			array_push($aid_arr, $tmp['id']);
+		}
+		//每篇文章的评论个数 
+		$map['aid']  = array('in',$aid_arr);
+		$article_comment = new \Admin\Model\ArticleCommentModel();
+		$article_comment_list = $article_comment->field('aid,count(0) as comments_num')->group('aid')->where($map)->select();
+		$comment_nums_arr = array();
+		foreach ($aid_arr as $aid){
+			foreach ($article_comment_list as $comment){
+				if ($comment['aid'] == $aid){
+					$comment_nums_arr[$aid] = empty($comment['comments_num']) ? 0 : $comment['comments_num'];
+				}
+			}
+		}
+		//时间等信息处理
 		foreach ($list as $k=>$article){
 			//内容的截取
 			$content = $article['content'];
 			$new_content = strip_tags($Parsedown->text($content));
+			$list[$k]['comments_num'] = isset($comment_nums_arr[$article['id']]) ? $comment_nums_arr[$article['id']] : 0;
 			$list[$k]['content'] = mb_substr($new_content,0,300, 'utf-8') . '...';
 			//时间的处理
 			$list[$k]['ctm_M'] = date('M',strtotime($article['ctm']));//月份简写
