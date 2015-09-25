@@ -56,7 +56,7 @@ return array(
 		'SMTP_HOST'   => 'SMTP.500efuma.com', //SMTP服务器
 		'SMTP_PORT'   => 25, //SMTP服务器端口
 		'SMTP_USER'   => 'postmaster@500efuma.com', //SMTP服务器用户名
-		'SMTP_PASS'   => 'Yinlu584521816', //SMTP服务器密码
+		'SMTP_PASS'   => 'Saki584521816', //SMTP服务器密码
 		'FROM_EMAIL'  => 'postmaster@500efuma.com', //发件人EMAIL
 		'FROM_NAME'   => '魔王的傻逼主页', //发件人名称
 		'REPLY_EMAIL' => '', //回复EMAIL（留空则为发件人EMAIL）
