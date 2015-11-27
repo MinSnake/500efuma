@@ -17,6 +17,8 @@ class PublicController extends HomeBaseController{
  	 * @date 2015-05-16 上午2:47:17 
 	 */
 	public function qqlogin(){
+		Log::write('处理QQ登入方法','ERR');
+		
 		$qqUtil = new \Org\QQ\QQUtil();
 		$code = $_GET['code'];
 		$state = $_GET['state'];//存储文章ID

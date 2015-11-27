@@ -25,9 +25,6 @@ return array(
 	'DB_PORT'=> 3306,        	// 端口
 	'DB_PREFIX' => 'fm_',
 		
-	'LOG_RECORD' => true, // 开启日志记录
-	'LOG_LEVEL'  =>'EMERG,ALERT,CRIT,ERR', // 只记录EMERG ALERT CRIT ERR 错误
-		
 	'APP_GROUP_LIST'=>'Home,Admin,Wechat',	//分组配置
 	'DEFAULT_GROUP'=>'Home',		//默认分组
 		// '配置项'=>'配置值'
