@@ -39,6 +39,8 @@ class QQUtil {
 			$data['errcode'] = 1;
 			$data['data'] = $params;
 		}
+		var_dump($data);
+		exit();
 		return $data;
 	}
 	
