@@ -35,6 +35,7 @@ class QQUtil {
 			}
 		}else {//成功
 			$params = array();
+			var_dump($response);
 			parse_str($response, $params);
 			$data['errcode'] = 1;
 			$data['data'] = $params;
