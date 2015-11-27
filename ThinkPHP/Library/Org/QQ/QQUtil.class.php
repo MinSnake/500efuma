@@ -22,6 +22,9 @@ class QQUtil {
 		$token_url = "https://graph.qq.com/oauth2.0/token?grant_type=authorization_code&"
 					. "client_id=" . $this->app_id . "&redirect_uri=" . urlencode($this->redirect_uri)
 					. "&client_secret=" . '09fc27016ac20dcbbf14b5be8faddff1' . "&code=" . $code;
+		
+		echo $token_url . '<br>';
+		
 		$response = file_get_contents($token_url);
 		//获取失败处理
 		if (strpos($response, "callback") !== false){
