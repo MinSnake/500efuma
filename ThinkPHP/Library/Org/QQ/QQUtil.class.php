@@ -38,8 +38,15 @@ class QQUtil {
 			}
 		}else {//成功
 			$params = array();
-			var_dump($response);
+			
+			echo $response . '<br>';
+			
+			
 			parse_str($response, $params);
+			
+			var_export($params);
+			
+			
 			$data['errcode'] = 1;
 			$data['data'] = $params;
 		}
