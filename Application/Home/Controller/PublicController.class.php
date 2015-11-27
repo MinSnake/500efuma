@@ -35,19 +35,19 @@ class PublicController extends HomeBaseController{
 				$user_info = $qqUtil->getUserInfo($token, $openId);
 			}else {
 				//Step4：使用Access Token来获取用户的OpenID
-				Log::write('使用Access Token来获取用户的OpenID:','INFO');
+				Log::write('使用Access Token来获取用户的OpenID:','ALERT');
 				
 				$open_res = $qqUtil->getOpenID($token);
 				
-				Log::write('$open_res:' . var_export($open_res),'INFO');
+				Log::write('$open_res:' . var_export($open_res),'ALERT');
 				
 				$openId =  $open_res['data'];
 				
-				Log::write('$openId:' . $openId,'INFO');
+				Log::write('$openId:' . $openId,'ALERT');
 				
 				$user_info = $qqUtil->getUserInfo($token, $openId);
 				
-				Log::write('$user_info:' . var_export($user_info) ,'INFO');
+				Log::write('$user_info:' . var_export($user_info) ,'ALERT');
 				
 				//添加新的数据
 				$model->saveLoginInfo($params, $user_info, $openId);
