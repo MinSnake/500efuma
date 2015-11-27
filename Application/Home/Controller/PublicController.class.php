@@ -18,8 +18,6 @@ class PublicController extends HomeBaseController{
 	 */
 	public function qqlogin(){
 		Log::write('处理QQ登入方法','ERR');
-		echo 'qqlogin';
-		exit();
 		
 		$qqUtil = new \Org\QQ\QQUtil();
 		$code = $_GET['code'];
