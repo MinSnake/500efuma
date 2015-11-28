@@ -26,32 +26,39 @@ return array(
 	'DB_PORT'=> 3306,        	// 端口
 	'DB_PREFIX' => 'fm_',
 		
-	'APP_GROUP_LIST'=>'Home,Admin,Wechat',	//分组配置
+	'APP_GROUP_LIST'=>'Home,Admin,Wechat,Tv',	//分组配置
 	'DEFAULT_GROUP'=>'Home',		//默认分组
-		// '配置项'=>'配置值'
-		'LAYOUT_ON' => true,
-		'LAYOUT_NAME' => 'Layout/main' ,
+
+	// '配置项'=>'配置值'
+	'LAYOUT_ON' => true,
+	'LAYOUT_NAME' => 'Layout/main' ,
+
 	'APP_SUB_DOMAIN_DEPLOY'=>1, 	// 开启子域名配置
 	/*子域名配置
 	 *格式如: '子域名'=>array('分组名/[模块名]','var1=a&var2=b');
 	 */
 	'APP_SUB_DOMAIN_RULES'=>array(
-			'admin'=>array('Admin/'),  // admin域名指向Admin分组
-			'wechat'=>array('Wechat/'),
-			'mahjong'=>array('Mahjong/'),
+		'admin'=>array('Admin/'),        // admin域名指向Admin分组
+		'wechat'=>array('Wechat/'),
+		'mahjong'=>array('Mahjong/'),
+        'tv'=>array('Tv/'),              //直播模块
 	),
+
 	//微信公众号配置	
 	'WECHAT' => array(
 		'AppID' 	=> 'wx7732c37d01fbc7fc',
 		'AppSecret' => 'becab177fbebea874093258ba6813ae0',
 		'Token' 	=> '500efuma',
 	),
+
 	'QQ_REDIRECT_URI' => 'http://www.500efuma.com/Home/Public/qqlogin',	//线上域名根地址
 	'QQ_APP_ID' => '101215106',
 	'QQ_APP_KEY' => '09fc27016ac20dcbbf14b5be8faddff1',
     'ADMIN_HEADIMG_URL' => '/Upload/headimg/saki.jpg',
     'ADMIN_NAME' => '站长',
     'ADMIN_EMAIL' => '395408934@qq.com',
+
+
 	//邮件配置，500efuma企业邮箱配置
 	'THINK_EMAIL' => array(
 		'SMTP_HOST'   => 'SMTP.500efuma.com', //SMTP服务器
