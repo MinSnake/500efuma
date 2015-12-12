@@ -75,7 +75,7 @@ class ArticleController extends HomeBaseController{
 	 * @date 2014-12-22 上午9:34:18
 	 * @version V1.0
 	 */
-	public function PostComment(){
+	public function Comment(){
 		$model = new \Admin\Model\ArticleCommentModel();
 		$post = $_POST['ArticleComment'];
 		$id = $post['aid'];

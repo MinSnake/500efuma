@@ -200,12 +200,9 @@ hr {
 		
 		<!-- 填写评论区 -->
 
-		<!--
-
-
 		<h2 class="comment-h2" style="margin-top:2em;" id="post-comment-start">发表评论</h2>
 		<div class="post-comment">
-			<form id="post-comment" action="/Home/Article/postComment" method="post">
+			<form id="post-comment" action="/Home/Article/comment" method="post">
 				<input type="hidden"  name="ArticleComment[aid]" value="{$info.id}">
 				<input type="hidden" id="ArticleCommentPid"  name="ArticleComment[pid]" value="0">
 				<input type="hidden" id="ArticleCommentTid"  name="ArticleComment[tid]" value="0">
@@ -236,7 +233,6 @@ hr {
 			</form>
 		</div>
 
--->
 
 	</div>
 </div>
