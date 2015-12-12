@@ -66,7 +66,18 @@ class PublicController extends HomeBaseController{
 	    $state_arr = explode('-', $state);
 	    $this->redirect($state_arr[1].'/'.$state_arr[2],array($state_arr[3]=>$state_arr[4]));
 	}
-	
+
+
+	/**
+	 * @todo 生成验证码图片
+	 * @author Saki <ilulu4ever816@gmail.com>
+	 * @date 2015-12-12 下午6:34:16
+	 */
+	public function builder_verify_img(){
+        $verify = new \Think\Verify();
+		$verify->entry();
+	}
+
 	
 	
 }

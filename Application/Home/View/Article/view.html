@@ -208,7 +208,8 @@ hr {
 				<input type="hidden" id="ArticleCommentTid"  name="ArticleComment[tid]" value="0">
 				<input type="hidden" name="ArticleComment[headimg_url]" value="{$headurl}">
 				<input type="hidden" name="ArticleComment[name]" value="{$qq_nickname}">
-				<!-- 
+				<input type="hidden" name="ArticleComment[token]" value="{$token}">
+				<!--
 				<div class="form-group">
 					<label class="control-label">昵称
 					<span style="float:right">(未填写则默认为【匿名游客】)</span>
@@ -218,12 +219,12 @@ hr {
 				<img alt="" src="{$headurl}" class="media-commit-img-post">
 				<br>
 				<div class="form-group" style="margin-left: 6%;">
-					<input type="text" class="form-control" name="ArticleComment[email]" placeholder="邮箱：(如填写，当有回复的时会发送邮件提醒)">
+					<input type="text" class="form-control" name="ArticleComment[email]" placeholder="邮箱(必填)">
 				</div>
 				<br>
-				<div class="form-group">
+				<div class="form-group" style="margin-bottom: 10px;">
 					<label class="control-label">评论信息</label>
-					<span style="float:right">(请不要填写空的评论，这样是不会进行处理的)</span>
+					<span style="float:right">(请不要填写空的评论)</span>
 					<textarea class="col-md-10 form-control" rows="8" name="ArticleComment[content]"></textarea>
 				</div>
 				<a href="javascript:void(0);" style="border: none;" class="button" id="comment-submit">提交评论</a>
@@ -284,9 +285,7 @@ $('#comment-submit').click(function(){
 	var res = true;
 	var reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/; 
 	var email = $("input[name='ArticleComment[email]']").val();
-	if(email != ''){
-		res = reg.test(email); 
-	}
+	res = reg.test(email);
 	if(!res){
 		alert('请填写正确的邮箱格式!');
 	}else{
