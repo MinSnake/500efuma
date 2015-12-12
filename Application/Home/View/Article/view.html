@@ -209,12 +209,23 @@ hr {
 				<input type="hidden" name="ArticleComment[headimg_url]" value="{$headurl}">
 				<input type="hidden" name="ArticleComment[name]" value="{$qq_nickname}">
 				<input type="hidden" name="ArticleComment[token]" value="{$token}">
-				<img alt="" src="{$headurl}" class="media-commit-img-post">
-				<br>
-				<div class="form-group" style="margin-left: 6%;">
-					<input type="text" class="form-control" name="ArticleComment[email]" placeholder="邮箱(必填)">
+
+				<div class="form-group">
+					<table>
+						<tr>
+						    <td style="width: 40px;"><img src="{$headurl}" style="height: 40px;position: relative;width: 40px;border-radius: 50%;top: 15px;"></td>
+						    <td><input type="text" class="form-control" name="ArticleComment[email]" placeholder="邮箱(必填)"></td>
+						    <td style="width: 145px;">
+								<a href="javascript:void(0);" onclick="fleshVerify();">
+								    <img id="verifyImg" style="height: 35px;top: 12px;position: relative;left: 10px;width: 132px;"
+										 alt="点击切换" src="{:U('Public/builder_verify_img')}" >
+							    </a>
+							</td>
+						    <td style="width: 160px;"><input type="text" class="form-control" name="verify" placeholder="验证码(点击图片切换)"></td>
+						</tr>
+					</table>
 				</div>
-				<br>
+
 				<div class="form-group" style="margin-bottom: 10px;">
 					<label class="control-label">评论信息</label>
 					<span style="float:right">(请不要填写空的评论)</span>
@@ -315,6 +326,12 @@ $('#no-obj').click(function(){
 $("#qq-login").click(function(){
 	window.location.href = '{$qq_login_url}';
 });
+
+function fleshVerify() {
+	//重载验证码
+	//var time = new Date().getTime();
+	document.getElementById('verifyImg').src = '__MODULE__/Public/builder_verify_img';
+}
 
 </script>
 

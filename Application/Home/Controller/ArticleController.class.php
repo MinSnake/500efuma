@@ -79,13 +79,22 @@ class ArticleController extends HomeBaseController{
 		$model = new \Admin\Model\ArticleCommentModel();
 		$post = $_POST['ArticleComment'];
 		$id = $post['aid'];
-		$comment_id = $model->createComment($post);
-		//发送邮件，这里为游客发送评论，则为管理员邮箱收到邮件
-		if($comment_id){
-			\Think\Hook::listen('postComment',$comment_id);
-			\Think\Hook::add('postComment','Home\\Behaviors\\emailBehavior');
+		//检测验证码
+		$verifyCode = I('verify');
+		$verify = new \Think\Verify();
+		$is_verify = $verify->check($verifyCode);
+		if (!$is_verify) {
+			$this->error('验证码输入错误！');
+		} else {
+			// '验证码输入正确！';
+			$comment_id = $model->createComment($post);
+			//发送邮件，这里为游客发送评论，则为管理员邮箱收到邮件
+			if($comment_id){
+				\Think\Hook::listen('postComment',$comment_id);
+				\Think\Hook::add('postComment','Home\\Behaviors\\emailBehavior');
+			}
+			$this->redirect('Article/view', array('id' => $id,'p'=>1));
 		}
-		$this->redirect('Article/view', array('id' => $id,'p'=>1));
 	}
 	
 	
