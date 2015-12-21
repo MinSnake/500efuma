@@ -26,7 +26,7 @@ class ArticleController extends HomeBaseController{
 		$condition['pid'] = 0;
 		$count = $comments_model->where($condition)->count();
 		//分页显示设置
-		$Page = new \Think\Page($count,3);
+		$Page = new \Think\Page($count,5);
 		$Page->setConfig('prev','上一页');
 		$Page->setConfig('next','下一页');
 		$Page->setConfig('theme','%FIRST%  %LINK_PAGE%  %END%');
@@ -51,7 +51,11 @@ class ArticleController extends HomeBaseController{
 						"state=".$state;
 		$qq_logout_url = U('Public/qqlogout',array('state'=>$state));
 		session('state',$state);  //设置session
-		$this->assign('info',$info);
+		//生成一个随机数，用户加密提交，防止脚本运行
+		$token = md5(uniqid(rand(), true));
+        session('article_token_' . $id,$token);
+
+        $this->assign('info',$info);
 		$this->assign('tags',$tags);
 		$this->assign('comments_list',$comments_list);
 		$this->assign('page',$show);
@@ -61,6 +65,7 @@ class ArticleController extends HomeBaseController{
 		$this->assign('headurl',$headurl);
 		$this->assign('is_qq_login',$is_qq_login);
 		$this->assign('qq_logout_url',$qq_logout_url);
+		$this->assign('token',$token);
 		$this->display();
 	}
 	
@@ -70,17 +75,26 @@ class ArticleController extends HomeBaseController{
 	 * @date 2014-12-22 上午9:34:18
 	 * @version V1.0
 	 */
-	public function PostComment(){
+	public function Comment(){
 		$model = new \Admin\Model\ArticleCommentModel();
 		$post = $_POST['ArticleComment'];
 		$id = $post['aid'];
-		$comment_id = $model->createComment($post);
-		//发送邮件，这里为游客发送评论，则为管理员邮箱收到邮件
-		if($comment_id){
-			\Think\Hook::listen('postComment',$comment_id);
-			\Think\Hook::add('postComment','Home\\Behaviors\\emailBehavior');
+		//检测验证码
+		$verifyCode = I('verify');
+		$verify = new \Think\Verify();
+		$is_verify = $verify->check($verifyCode);
+		if (!$is_verify) {
+			$this->error('验证码输入错误！');
+		} else {
+			// '验证码输入正确！';
+			$comment_id = $model->createComment($post);
+			//发送邮件，这里为游客发送评论，则为管理员邮箱收到邮件
+			if($comment_id){
+				\Think\Hook::listen('postComment',$comment_id);
+				\Think\Hook::add('postComment','Home\\Behaviors\\emailBehavior');
+			}
+			$this->redirect('Article/view', array('id' => $id,'p'=>1));
 		}
-		$this->redirect('Article/view', array('id' => $id,'p'=>1));
 	}
 	
 	

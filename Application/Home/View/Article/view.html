@@ -152,7 +152,7 @@ hr {
 							</if>
 						</span>
 					</h4>
-					<div class="re-content"><p>{$comment.content}</div>
+					<div class="re-content"><p style="margin-left: 12px;">{$comment.content}</div>
 					
 				</div>
 				<if condition="$comment.comment_sec neq null">
@@ -199,31 +199,36 @@ hr {
 		</if>
 		
 		<!-- 填写评论区 -->
-		
+
 		<h2 class="comment-h2" style="margin-top:2em;" id="post-comment-start">发表评论</h2>
 		<div class="post-comment">
-			<form id="post-comment" action="/Home/Article/postComment" method="post">
+			<form id="post-comment" action="/Home/Article/comment" method="post">
 				<input type="hidden"  name="ArticleComment[aid]" value="{$info.id}">
 				<input type="hidden" id="ArticleCommentPid"  name="ArticleComment[pid]" value="0">
 				<input type="hidden" id="ArticleCommentTid"  name="ArticleComment[tid]" value="0">
 				<input type="hidden" name="ArticleComment[headimg_url]" value="{$headurl}">
 				<input type="hidden" name="ArticleComment[name]" value="{$qq_nickname}">
-				<!-- 
+				<input type="hidden" name="ArticleComment[token]" value="{$token}">
+
 				<div class="form-group">
-					<label class="control-label">昵称
-					<span style="float:right">(未填写则默认为【匿名游客】)</span>
-					<input type="text" class="form-control" name="ArticleComment[name]">
+					<table>
+						<tr>
+						    <td style="width: 40px;"><img src="{$headurl}" style="height: 40px;position: relative;width: 40px;border-radius: 50%;top: 15px;"></td>
+						    <td><input type="text" class="form-control" name="ArticleComment[email]" placeholder="邮箱(必填)"></td>
+						    <td style="width: 145px;">
+								<a href="javascript:void(0);" onclick="fleshVerify();">
+								    <img id="verifyImg" style="height: 35px;top: 12px;position: relative;left: 10px;width: 132px;"
+										 alt="点击切换" src="{:U('Public/builder_verify_img')}" >
+							    </a>
+							</td>
+						    <td style="width: 160px;"><input type="text" class="form-control" name="verify" placeholder="验证码(点击图片切换)"></td>
+						</tr>
+					</table>
 				</div>
-				 -->
-				<img alt="" src="{$headurl}" class="media-commit-img-post">
-				<br>
-				<div class="form-group" style="margin-left: 6%;">
-					<input type="text" class="form-control" name="ArticleComment[email]" placeholder="邮箱：(如填写，当有回复的时会发送邮件提醒)">
-				</div>
-				<br>
-				<div class="form-group">
+
+				<div class="form-group" style="margin-bottom: 10px;">
 					<label class="control-label">评论信息</label>
-					<span style="float:right">(请不要填写空的评论，这样是不会进行处理的)</span>
+					<span style="float:right">(请不要填写空的评论)</span>
 					<textarea class="col-md-10 form-control" rows="8" name="ArticleComment[content]"></textarea>
 				</div>
 				<a href="javascript:void(0);" style="border: none;" class="button" id="comment-submit">提交评论</a>
@@ -238,7 +243,8 @@ hr {
 				</if>
 			</form>
 		</div>
-		
+
+
 	</div>
 </div>
 
@@ -284,9 +290,7 @@ $('#comment-submit').click(function(){
 	var res = true;
 	var reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/; 
 	var email = $("input[name='ArticleComment[email]']").val();
-	if(email != ''){
-		res = reg.test(email); 
-	}
+	res = reg.test(email);
 	if(!res){
 		alert('请填写正确的邮箱格式!');
 	}else{
@@ -322,6 +326,12 @@ $('#no-obj').click(function(){
 $("#qq-login").click(function(){
 	window.location.href = '{$qq_login_url}';
 });
+
+function fleshVerify() {
+	//重载验证码
+	//var time = new Date().getTime();
+	document.getElementById('verifyImg').src = '__MODULE__/Public/builder_verify_img';
+}
 
 </script>
 
