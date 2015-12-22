@@ -42,6 +42,7 @@ return array(
 		'wechat'=>array('Wechat/'),
 		'mahjong'=>array('Mahjong/'),
         'tv'=>array('Tv/'),              //直播模块
+        'activity'=>array('Activity/'),              
 	),
 
 	//微信公众号配置	
@@ -81,13 +82,5 @@ return array(
 // 				'REPLY_EMAIL' => '', //回复EMAIL（留空则为发件人EMAIL）
 // 				'REPLY_NAME'  => '', //回复名称（留空则为发件人名称）
 // 		),
-
-
-    //验证码配置
-	'VERIFY_CODE' => array(
-		'fontSize' => 30,
-		'length' => 4,
-	),
-
 
 );
