@@ -1,11 +1,65 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>活动</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>活动</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
-<body>
-123
+<style>
+.default span{
+	margin-left: 30px;
+	color:#F381B3;
+}
+
+.history {
+	margin-top: 30px;
+}
+
+.history span{
+	margin-left: 36px;
+	color:#F381B3;
+}
+.flag-1 span{
+	color:#FFFFFF !important;
+}
+
+h1 ,h4{
+	color:#FFFFFF;
+}
+</style>
+<body style="text-align: center;background-color: #313131">
+
+	<div>
+		<h1>默认顺序</h1>
+		<div class="default">
+			<span>小百合(1)</span>
+			<span>小龙华(2)</span>
+			<span>小六花(3)</span>
+			<span>小假肢(4)</span>
+			<span>小CC(5)</span>
+			<span>小小野(6)</span>
+			<span>小魔王(7)</span>
+		</div>
+	</div>
+
+	<div>
+		<h1>历史排序</h1>
+		<h4>K:从第K个人开始数  &nbsp&nbsp&nbsp M:数到M的人出列</h4>
+		<volist name="list" id="obj">
+			<div class="history flag-{$i}">
+				<span>{$obj.ctm}</span>
+			<php>
+				
+				$data = $obj['data'];
+				$result = $data['result'];
+				echo "<span>K:".$data['k']."</span>";
+				echo "<span>M:".$data['m']."</span>";
+			    foreach ($result as $a){
+			        echo "<span>$a</span>";
+			    }
+			</php>
+			</div>
+		</volist>
+	</div>
 
 </body>
 </html>

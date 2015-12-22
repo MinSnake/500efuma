@@ -11,102 +11,55 @@ class IndexController extends Controller {
     
     //数据初始化
     public function _initialize(){
-        $this->user_arr = array('A','B','C','D','E','F','G');
+        $this->user_arr = array('小百合','小龙华','小六花','小假肢','小CC','小小野','小魔王');
         $this->N = count($this->user_arr);
         $this->K = rand(1, $this->N);
         $this->M = rand(1, $this->N);
     }
     
     public function index(){
-        //按照K的值将数组进行排序
-        echo 'K:' . $this->K . '<br>';
-        echo 'M:' . $this->M . '<br>';
-        //进行重新排序
-        $temp = array();
-        foreach ($this->user_arr as $user_k => $user_v){
-            if ($user_k+1 < $this->K){
-                unset($this->user_arr[$user_k]);
-                array_push($this->user_arr, $user_v);
-            }
+        $christmas_model = M('activity_christmas');
+        $list = $christmas_model->order('ctm desc')->select();
+        foreach ($list as $k=>$temp) {
+            $temp['data'] = (array)json_decode($temp['data']);
+            $list[$k] = $temp;
         }
-        $this->user_arr= array_merge($this->user_arr,array());//为了让key重新从0开始
-        $this->user_arr= array_merge($this->user_arr,$this->user_arr);
-        
-        
-        echo '生成的数组队列：';
-        var_dump($this->user_arr);
-        echo '开始约瑟夫环计算<br>';
-        
-        //进行约瑟夫循环
-        $new_user_arr = array();
-        $result = $this->my_sort($this->user_arr, $new_user_arr);
-//         echo '结果：';
-//         var_dump($result);
+        $this->assign('list',$list);
+        $this->display();
     }
     
+    public function christmas(){
+        $temp = array_splice($this->user_arr, $this->K-1,$this->N-($this->K-1));
+        array_splice($this->user_arr, 0, 0, $temp);
+        $start = $this->user_arr;
+        $result = $this->my_sort($this->user_arr);
+        //data数据生成
+        $data['k'] = $this->K;
+        $data['m'] = $this->M;
+        $data['start'] = $start;
+        $data['result'] = $result;
+        //DB操作记录数据
+        $christmas_model = M('activity_christmas');
+        $save['data'] = json_encode($data);
+        $save['ctm'] = date('Y-m-d H:i:s',time());
+        $christmas_model->add($save);
+    }
     
-    public function my_sort($user_arr,$new_user_arr){
-        if (count($user_arr) > 0){
-            $count = count($user_arr);
-            foreach ($user_arr as $k=>$v){
-                if ($k+1 == $this->M){
-                    
-                    echo '当前减掉'.$v.'<br>';
-                    
-                    array_push($new_user_arr, $user_arr[$k]);//然后加到新的数组里面
-                    
-                    //把剩余的重新排序,取出M后面的
-                    $last_arr = array_slice($user_arr,$this->M);
-                    
-                    unset($user_arr[$k]);//将这个踢出去
-                    unset($user_arr[$k+$this->N]);//将这个踢出去
-                    
-                    echo '剩余的：'.var_export($user_arr,true) .'<br>';
-                    $user_arr = array_merge($user_arr,array());
-                    
-                    
-                    
-                    echo '截取到后面的:'.var_export($last_arr,true).'<br>';
-                    
-                    if (count($last_arr) > 0 ){
-                        krsort($last_arr);
-                        //放到最前面
-                        foreach ($last_arr as $last_k=>$last){
-                            array_unshift($user_arr, $last);//往数组头放
-                        }
-                    }
-                    //把后面的都清空
-                    foreach ($user_arr as $k=>$v){
-                        if ($k > $count-2){
-                            unset($user_arr[$k]);
-                        }
-                    }
-                    $user_arr = array_merge($user_arr,array());//重新开始
-                    echo '重新计算之后的：'.var_export($user_arr,true).'<br>';
-                }
+    private function my_sort($a,$new = array()){
+        if (count($a) > 1){
+            $i = $this->M % count($a);//余数即踢出的第i个
+            $out = array_splice($a, $i-1 ,1);
+            array_push($new, $out[0]);
+            //重组下
+            if ($i != 0){
+                $last = array_splice($a, $i-1 ,count($a)-($i-1));
+                array_splice($a, 0 ,0 ,$last);
             }
-//             var_dump($user_arr);
-//             var_dump($new_user_arr);
-            $this->my_sort($user_arr, $new_user_arr);
-        }else{
-            array_push($new_user_arr, $user_arr[0]);
-            return $new_user_arr;
+            return $this->my_sort($a, $new);
+        }else {
+            array_push($new, $a[0]);
+            return $new;
         }
     }
     
-    
-    public function a(){
-        
-        
-        
-    }
-    
-    
-    
-    
-    
-
-    
-    
-
 }
