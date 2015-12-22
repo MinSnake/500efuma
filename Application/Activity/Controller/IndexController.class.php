@@ -11,7 +11,7 @@ class IndexController extends Controller {
     
     //数据初始化
     public function _initialize(){
-        $this->user_arr = array('小百合','小龙华','小六花','小假肢','小CC','小小野','小魔王');
+        $this->user_arr = array('小百合','小龙华','小六花','小假肢','小CC','小小野','小魔王','小透华');
         $this->N = count($this->user_arr);
         $this->K = rand(1, $this->N);
         $this->M = rand(1, $this->N);
@@ -25,6 +25,7 @@ class IndexController extends Controller {
             $list[$k] = $temp;
         }
         $this->assign('list',$list);
+        $this->assign('user_arr',$this->user_arr);
         $this->display();
     }
     

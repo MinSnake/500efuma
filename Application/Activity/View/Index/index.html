@@ -32,13 +32,9 @@ h1 ,h4{
 	<div>
 		<h1>默认顺序</h1>
 		<div class="default">
-			<span>小百合(1)</span>
-			<span>小龙华(2)</span>
-			<span>小六花(3)</span>
-			<span>小假肢(4)</span>
-			<span>小CC(5)</span>
-			<span>小小野(6)</span>
-			<span>小魔王(7)</span>
+			<volist name="user_arr" id="user" key="k" >
+				<span>{$user}({$k})</span>
+			</volist>
 		</div>
 	</div>
 
