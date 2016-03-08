@@ -1,15 +1,5 @@
 <?php
 return array(
-		
-	//'ERROR_PAGE' =>'Home/Public/404.html',
-	//I500efuma
-	
-	//747599
-	
-	//ljd910423
-	//584521
-	
-		
 	//'配置项'=>'配置值'
 // 	'SHOW_PAGE_TRACE'=>true,
 	'URL_HTML_SUFFIX'=>'.html',
@@ -21,7 +11,7 @@ return array(
 	/*本地开发用*/
 	'DB_HOST'=> 'localhost', 	
 	'DB_USER'=> 'root',    		
-	'DB_PWD'=> 'i500efuma',    	//本地数据库密码
+	'DB_PWD'=> 'saki500efuma',    	//本地数据库密码
 	'DB_NAME'=> '500efuma',  	// 数据库名
 	'DB_PORT'=> 3306,        	// 端口
 	'DB_PREFIX' => 'fm_',
