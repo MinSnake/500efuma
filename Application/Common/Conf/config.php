@@ -5,7 +5,7 @@ return array(
 	'URL_HTML_SUFFIX'=>'.html',
 	'URL_MODEL'=>2,
 	//mysql配置
-	'DB_TYPE'=> 'mysql',     	//数据库类型
+	'DB_TYPE'=> 'mysqli',     	//数据库类型
 	'DB_DEPLOY_TYPE'=> 1,
 	'DB_RW_SEPARATE'=>true,
 	/*本地开发用*/
