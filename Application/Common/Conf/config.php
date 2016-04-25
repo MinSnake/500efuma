@@ -9,9 +9,14 @@ return array(
 	'DB_DEPLOY_TYPE'=> 1,
 	'DB_RW_SEPARATE'=>true,
 	/*本地开发用*/
-	'DB_HOST'=> 'localhost', 	
-	'DB_USER'=> 'root',    		
-	'DB_PWD'=> 'saki500efuma',    	//本地数据库密码
+	//'DB_HOST'=> 'localhost', 	
+	//'DB_USER'=> 'root',    		
+	//'DB_PWD'=> 'saki500efuma',    	//本地数据库密码
+	
+	'DB_HOST'=> '10.0.0.173', 	
+	'DB_USER'=> 'saki',    		
+	'DB_PWD'=> '584521',    	//本地数据库密码
+	
 	'DB_NAME'=> '500efuma',  	// 数据库名
 	'DB_PORT'=> 3306,        	// 端口
 	'DB_PREFIX' => 'fm_',
@@ -50,27 +55,17 @@ return array(
     'ADMIN_EMAIL' => '395408934@qq.com',
 
 
-	//邮件配置，500efuma企业邮箱配置
+	//邮件配置
+	//*163配置如下*//
 	'THINK_EMAIL' => array(
-		'SMTP_HOST'   => 'SMTP.500efuma.com', //SMTP服务器
-		'SMTP_PORT'   => 25, //SMTP服务器端口
-		'SMTP_USER'   => 'postmaster@500efuma.com', //SMTP服务器用户名
-		'SMTP_PASS'   => 'Saki584521816', //SMTP服务器密码
-		'FROM_EMAIL'  => 'postmaster@500efuma.com', //发件人EMAIL
-		'FROM_NAME'   => '魔王的傻逼主页', //发件人名称
-		'REPLY_EMAIL' => '', //回复EMAIL（留空则为发件人EMAIL）
-		'REPLY_NAME'  => '', //回复名称（留空则为发件人名称）
+			'SMTP_HOST'   => 'smtp.xxxx.com', //SMTP服务器
+			'SMTP_PORT'   => 25, //SMTP服务器端口
+			'SMTP_USER'   => 'xxx@xxx.com', //SMTP服务器用户名
+			'SMTP_PASS'   => 'xxxxx', //SMTP服务器密码
+			'FROM_EMAIL'  => 'xxx@xxxx.com', //发件人EMAIL
+			'FROM_NAME'   => 'xxxxxxx', //发件人名称
+			'REPLY_EMAIL' => '', //回复EMAIL（留空则为发件人EMAIL）
+			'REPLY_NAME'  => '', //回复名称（留空则为发件人名称）
 	),
-		//*163配置如下*//
-// 		'THINK_EMAIL' => array(
-// 				'SMTP_HOST'   => 'smtp.163.com', //SMTP服务器
-// 				'SMTP_PORT'   => 25, //SMTP服务器端口
-// 				'SMTP_USER'   => 'inclulu@163.com', //SMTP服务器用户名
-// 				'SMTP_PASS'   => 'q584521816!', //SMTP服务器密码
-// 				'FROM_EMAIL'  => 'no-reply@500efuma.com', //发件人EMAIL
-// 				'FROM_NAME'   => '魔王的傻逼主页', //发件人名称
-// 				'REPLY_EMAIL' => '', //回复EMAIL（留空则为发件人EMAIL）
-// 				'REPLY_NAME'  => '', //回复名称（留空则为发件人名称）
-// 		),
 
 );
