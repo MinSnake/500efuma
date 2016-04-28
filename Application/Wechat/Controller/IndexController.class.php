@@ -17,8 +17,8 @@ class IndexController extends Controller {
 	
 	public function index(){
 		//接受微信xml文件
-		if(isset($GLOBALS["HTTP_RAW_POST_DATA"])){
-			$xml = $GLOBALS["HTTP_RAW_POST_DATA"];
+		$xml = file_get_contents('php://input');
+		if($xml){
 			$xmlObj = resolveXML($xml);
 			//获取用户openid
 			$Developers = $xmlObj->ToUserName;//开发者微信号
