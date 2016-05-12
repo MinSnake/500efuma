@@ -1,5 +1,40 @@
-img {
+body {
+    background-color: #3C3C3C;
+    color: #FFF;
+}
+
+.hanafuda_pic {
     width: 67px;
     height: 103px;
-    background-color: #000000;
+    background-color: #3C3C3C;
+    border: 1px solid #5F9CBF;
+}
+
+.hanafuda_pic:hover {
+    border-color: #FFFFFF;
+}
+
+.hanafuda_bak {
+    -webkit-transform: rotateY(180deg);
+    background-color: #BB5656;
+    width: 67px;
+    height: 103px;
+    text-align: center;
+    position: absolute;
+    margin-top: -108px;
+    display: none;
+    border: 1px solid #5F9CBF;
+}
+
+.hanafuda_bak:hover {
+    border-color: #FFFFFF;
+}
+
+.hanafuda_bak p {
+    margin-top: 40px;
+    cursor: default;
+}
+
+.hanafuda_name {
+    text-align: center;
 }
