@@ -39,6 +39,7 @@ return array(
 		'mahjong'=>array('Mahjong/'),
 		'tv'=>array('Tv/'),              //直播模块
 		'activity'=>array('Activity/'),
+		'hanafuda'=>array('Hanafuda/'),
 	),
 
 	//微信公众号配置	
