@@ -1,22 +1,36 @@
 <?php
 namespace Hanafuda\Controller;
+
 use Think\Controller;
 use Hanafuda\Model;
 
-class IndexController extends Controller {
+class IndexController extends Controller
+{
 
-    public function index(){
+    private $hanafudaModel;
+
+    public function _initialize()
+    {
+        $this->hanafudaModel = new Model\HanafudaModel();
+    }
+
+    public function index()
+    {
+        $this->display();
+    }
+
+    public function index2()
+    {
         $this->display();
     }
 
 
-    public function create(){
-        if ($_POST){
-            $data = $_POST;
-            $hanafudaModel = new Model\HanafudaModel();
-            $hanafudaModel->addHanafuda($data);
-        }
+    public function index3()
+    {
+        $hanaList = $this->hanafudaModel->getHanaList();
+        $this->assign('hanaList', $hanaList);
         $this->display();
     }
+
 
 }

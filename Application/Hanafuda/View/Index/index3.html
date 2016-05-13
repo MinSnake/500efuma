@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>花扎</title>
+    <script src="/Template/js/jquery-1.9.1.min.js"></script>
+    <script src="__JS__/index.js"></script>
+    <link href="__CSS__/index.css" rel="stylesheet" type="text/css" media="all"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+</head>
+<body>
+
+<h1 style="text-align: center;">花扎</h1>
+
+<table cellpadding="10">
+    <for start="1" end="7" name="i">
+        <tr>
+            <for start="1" end="9" name="k">
+                <td>
+                    <img class="hanafuda_pic"
+                         src="__IMAGES__/{$hanaList[$i*8-8+$k-1]['month']}/{$hanaList[$i*8-8+$k-1]['imgurl']}"
+                         data-y="0"
+                         data-url="__IMAGES__/{$hanaList[$i*8-8+$k-1]['month']}/{$hanaList[$i*8-8+$k-1]['imgurl']}">
+                    <div class="hanafuda_bak"><p>{$hanaList[$i*8-8+$k-1]['name_cn']}</p></div>
+                    <!--<div class="hanafuda_name">{$hana.name_cn}</div>-->
+                </td>
+
+            </for>
+        </tr>
+    </for>
+</table>
+
+
+</body>
+</html>

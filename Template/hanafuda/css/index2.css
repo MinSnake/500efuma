@@ -1,0 +1,20 @@
+
+html, body {
+    margin: 0px;
+    height: 100%;
+}
+
+#left {
+    background-color: #0c91e5;
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+
+#right {
+    background-color: #cf867e;
+    float: right;
+    width: 50%;
+    height: 100%;
+
+}
