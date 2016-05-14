@@ -11,7 +11,7 @@ body {
 }
 
 .hanafuda_pic:hover {
-    border-color: #FFFFFF;
+    border-color: #000;
 }
 
 .hanafuda_bak {
@@ -27,7 +27,7 @@ body {
 }
 
 .hanafuda_bak:hover {
-    border-color: #FFFFFF;
+    border-color: #000000;
 }
 
 .hanafuda_bak p {

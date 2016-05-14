@@ -76,20 +76,40 @@
             <div class="slide">
                 <div class="top">
                     <table style="float: left">
-                        <tr style="height: 10%">
+                        <tr class="table_top">
                             <td colspan="4">{$i * 4 - 3}月</td>
                         </tr>
-                        <tr style="height: 80%">
-                            <td style="width: 25%"><img src="__IMAGES__/{$i * 4 - 3}/1.jpg"></td>
-                            <td style="width: 25%"><img src="__IMAGES__/{$i * 4 - 3}/2.jpg"></td>
-                            <td style="width: 25%"><img src="__IMAGES__/{$i * 4 - 3}/3.jpg"></td>
-                            <td style="width: 25%"><img src="__IMAGES__/{$i * 4 - 3}/4.jpg"></td>
+                        <tr class="table_middle">
+                            <td>
+                                <img class="hanafuda_pic" data-y="0"
+                                     data-url="__IMAGES__/{$i * 4 - 3}/1.jpg"
+                                     src="__IMAGES__/{$i * 4 - 3}/1.jpg">
+                                <div class="hanafuda_bak"><p>{$hanaList[$i*16 - 16]['name_cn']}</p></div>
+                            </td>
+                            <td>
+                                <img class="hanafuda_pic" data-y="0"
+                                     data-url="__IMAGES__/{$i * 4 - 3}/2.jpg"
+                                     src="__IMAGES__/{$i * 4 - 3}/2.jpg">
+                                <div class="hanafuda_bak"><p>{$hanaList[$i*16 - 15]['name_cn']}</p></div>
+                            </td>
+                            <td>
+                                <img class="hanafuda_pic" data-y="0"
+                                     data-url="__IMAGES__/{$i * 4 - 3}/3.jpg"
+                                     src="__IMAGES__/{$i * 4 - 3}/3.jpg">
+                                <div class="hanafuda_bak"><p>{$hanaList[$i*16 - 14]['name_cn']}</p></div>
+                            </td>
+                            <td>
+                                <img class="hanafuda_pic" data-y="0"
+                                     data-url="__IMAGES__/{$i * 4 - 3}/4.jpg"
+                                     src="__IMAGES__/{$i * 4 - 3}/4.jpg">
+                                <div class="hanafuda_bak"><p>{$hanaList[$i*16 - 13]['name_cn']}</p></div>
+                            </td>
                         </tr>
-                        <tr style="height: 10%">
-                            <td style="width: 25%">{$hanaList[$i*16 - 16]['name_cn']}</td>
-                            <td style="width: 25%">{$hanaList[$i*16 - 15]['name_cn']}</td>
-                            <td style="width: 25%">{$hanaList[$i*16 - 14]['name_cn']}</td>
-                            <td style="width: 25%">{$hanaList[$i*16 - 13]['name_cn']}</td>
+                        <tr class="table_bottom">
+                            <td>{$hanaList[$i*16 - 16]['name_cn']}</td>
+                            <td>{$hanaList[$i*16 - 15]['name_cn']}</td>
+                            <td>{$hanaList[$i*16 - 14]['name_cn']}</td>
+                            <td>{$hanaList[$i*16 - 13]['name_cn']}</td>
                         </tr>
                     </table>
                     <table style="float: right">
@@ -97,16 +117,36 @@
                             <td colspan="4">{$i * 4 - 2}月</td>
                         </tr>
                         <tr style="height: 80%">
-                            <td style="width: 25%"><img src="__IMAGES__/{$i * 4 - 2}/1.jpg"></td>
-                            <td style="width: 25%"><img src="__IMAGES__/{$i * 4 - 2}/2.jpg"></td>
-                            <td style="width: 25%"><img src="__IMAGES__/{$i * 4 - 2}/3.jpg"></td>
-                            <td style="width: 25%"><img src="__IMAGES__/{$i * 4 - 2}/4.jpg"></td>
+                            <td>
+                                <img class="hanafuda_pic" data-y="0"
+                                     data-url="__IMAGES__/{$i * 4 - 2}/1.jpg"
+                                     src="__IMAGES__/{$i * 4 - 2}/1.jpg">
+                                <div class="hanafuda_bak"><p>{$hanaList[$i*16 - 12]['name_cn']}</p></div>
+                            </td>
+                            <td>
+                                <img class="hanafuda_pic" data-y="0"
+                                     data-url="__IMAGES__/{$i * 4 - 2}/1.jpg"
+                                     src="__IMAGES__/{$i * 4 - 2}/2.jpg">
+                                <div class="hanafuda_bak"><p>{$hanaList[$i*16 - 11]['name_cn']}</p></div>
+                            </td>
+                            <td>
+                                <img class="hanafuda_pic" data-y="0"
+                                     data-url="__IMAGES__/{$i * 4 - 2}/3.jpg"
+                                     src="__IMAGES__/{$i * 4 - 2}/3.jpg">
+                                <div class="hanafuda_bak"><p>{$hanaList[$i*16 - 10]['name_cn']}</p></div>
+                            </td>
+                            <td>
+                                <img class="hanafuda_pic" data-y="0"
+                                     data-url="__IMAGES__/{$i * 4 - 2}/4.jpg"
+                                     src="__IMAGES__/{$i * 4 - 2}/4.jpg">
+                                <div class="hanafuda_bak"><p>{$hanaList[$i*16 - 9]['name_cn']}</p></div>
+                            </td>
                         </tr>
                         <tr style="height: 10%">
-                            <td style="width: 25%">{$hanaList[$i*16 - 12]['name_cn']}</td>
-                            <td style="width: 25%">{$hanaList[$i*16 - 11]['name_cn']}</td>
-                            <td style="width: 25%">{$hanaList[$i*16 - 10]['name_cn']}</td>
-                            <td style="width: 25%">{$hanaList[$i*16 -  9]['name_cn']}</td>
+                            <td>{$hanaList[$i*16 - 12]['name_cn']}</td>
+                            <td>{$hanaList[$i*16 - 11]['name_cn']}</td>
+                            <td>{$hanaList[$i*16 - 10]['name_cn']}</td>
+                            <td>{$hanaList[$i*16 - 9]['name_cn']}</td>
                         </tr>
                     </table>
                 </div>
@@ -117,16 +157,36 @@
                             <td colspan="4">{$i * 4 - 1}月</td>
                         </tr>
                         <tr style="height: 80%">
-                            <td style="width: 25%"><img src="__IMAGES__/{$i * 4 - 1}/1.jpg"></td>
-                            <td style="width: 25%"><img src="__IMAGES__/{$i * 4 - 1}/2.jpg"></td>
-                            <td style="width: 25%"><img src="__IMAGES__/{$i * 4 - 1}/3.jpg"></td>
-                            <td style="width: 25%"><img src="__IMAGES__/{$i * 4 - 1}/4.jpg"></td>
+                            <td>
+                                <img class="hanafuda_pic" data-y="0"
+                                     data-url="__IMAGES__/{$i * 4 - 1}/1.jpg"
+                                     src="__IMAGES__/{$i * 4 - 1}/1.jpg">
+                                <div class="hanafuda_bak"><p>{$hanaList[$i*16 - 8]['name_cn']}</p></div>
+                            </td>
+                            <td>
+                                <img class="hanafuda_pic" data-y="0"
+                                     data-url="__IMAGES__/{$i * 4 - 1}/2.jpg"
+                                     src="__IMAGES__/{$i * 4 - 1}/2.jpg">
+                                <div class="hanafuda_bak"><p>{$hanaList[$i*16 - 7]['name_cn']}</p></div>
+                            </td>
+                            <td>
+                                <img class="hanafuda_pic" data-y="0"
+                                     data-url="__IMAGES__/{$i * 4 - 1}/3.jpg"
+                                     src="__IMAGES__/{$i * 4 - 1}/3.jpg">
+                                <div class="hanafuda_bak"><p>{$hanaList[$i*16 - 6]['name_cn']}</p></div>
+                            </td>
+                            <td>
+                                <img class="hanafuda_pic" data-y="0"
+                                     data-url="__IMAGES__/{$i * 4 - 1}/4.jpg"
+                                     src="__IMAGES__/{$i * 4 - 1}/4.jpg">
+                                <div class="hanafuda_bak"><p>{$hanaList[$i*16 - 5]['name_cn']}</p></div>
+                            </td>
                         </tr>
                         <tr style="height: 10%">
-                            <td style="width: 25%">{$hanaList[$i*16 - 8]['name_cn']}</td>
-                            <td style="width: 25%">{$hanaList[$i*16 - 7]['name_cn']}</td>
-                            <td style="width: 25%">{$hanaList[$i*16 - 6]['name_cn']}</td>
-                            <td style="width: 25%">{$hanaList[$i*16 - 5]['name_cn']}</td>
+                            <td>{$hanaList[$i*16 - 8]['name_cn']}</td>
+                            <td>{$hanaList[$i*16 - 7]['name_cn']}</td>
+                            <td>{$hanaList[$i*16 - 6]['name_cn']}</td>
+                            <td>{$hanaList[$i*16 - 5]['name_cn']}</td>
                         </tr>
                     </table>
                     <table style="float: right">
@@ -134,16 +194,37 @@
                             <td colspan="4">{$i * 4 - 0}月</td>
                         </tr>
                         <tr style="height: 80%">
-                            <td style="width: 25%"><img src="__IMAGES__/{$i * 4 - 0}/1.jpg"></td>
-                            <td style="width: 25%"><img src="__IMAGES__/{$i * 4 - 0}/2.jpg"></td>
-                            <td style="width: 25%"><img src="__IMAGES__/{$i * 4 - 0}/3.jpg"></td>
-                            <td style="width: 25%"><img src="__IMAGES__/{$i * 4 - 0}/4.jpg"></td>
+                            <td>
+                                <img class="hanafuda_pic" data-y="0"
+                                     data-url="__IMAGES__/{$i * 4 - 0}/1.jpg"
+                                     src="__IMAGES__/{$i * 4 - 0}/1.jpg">
+                                <div class="hanafuda_bak"><p>{$hanaList[$i*16 - 4]['name_cn']}</p></div>
+                            </td>
+                            <td>
+                                <img class="hanafuda_pic" data-y="0"
+                                     data-url="__IMAGES__/{$i * 4 - 0}/2.jpg"
+                                     src="__IMAGES__/{$i * 4 - 0}/2.jpg">
+                                <div class="hanafuda_bak"><p>{$hanaList[$i*16 - 3]['name_cn']}</p></div>
+                            </td>
+                            <td>
+                                <img class="hanafuda_pic" data-y="0"
+                                     data-url="__IMAGES__/{$i * 4 - 0}/3.jpg"
+                                     src="__IMAGES__/{$i * 4 - 0}/3.jpg">
+                                <div class="hanafuda_bak"><p>{$hanaList[$i*16 - 2]['name_cn']}</p></div>
+                            </td>
+                            <td>
+                                <img class="hanafuda_pic" data-y="0"
+                                     data-url="__IMAGES__/{$i * 4 - 0}/4.jpg"
+                                     src="__IMAGES__/{$i * 4 - 0}/4.jpg">
+                                <div class="hanafuda_bak"><p>{$hanaList[$i*16 - 1]['name_cn']}</p></div>
+                            </td>
+
                         </tr>
                         <tr style="height: 10%">
-                            <td style="width: 25%">{$hanaList[$i*16 - 4]['name_cn']}</td>
-                            <td style="width: 25%">{$hanaList[$i*16 - 3]['name_cn']}</td>
-                            <td style="width: 25%">{$hanaList[$i*16 - 2]['name_cn']}</td>
-                            <td style="width: 25%">{$hanaList[$i*16 - 1]['name_cn']}</td>
+                            <td>{$hanaList[$i*16 - 4]['name_cn']}</td>
+                            <td>{$hanaList[$i*16 - 3]['name_cn']}</td>
+                            <td>{$hanaList[$i*16 - 2]['name_cn']}</td>
+                            <td>{$hanaList[$i*16 - 1]['name_cn']}</td>
                         </tr>
                     </table>
                 </div>
@@ -151,8 +232,6 @@
 
             </div>
         </for>
-
-
 
 
     </div>
