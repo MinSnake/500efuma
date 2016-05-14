@@ -1,40 +1,104 @@
-body {
-    background-color: #3C3C3C;
-    color: #FFF;
+html, body {
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    width: 100%;
 }
 
-.hanafuda_pic {
-    width: 67px;
-    height: 103px;
-    background-color: #3C3C3C;
-    border: 1px solid #5F9CBF;
-}
-
-.hanafuda_pic:hover {
-    border-color: #FFFFFF;
-}
-
-.hanafuda_bak {
-    -webkit-transform: rotateY(180deg);
-    background-color: #BB5656;
-    width: 67px;
-    height: 103px;
-    text-align: center;
+#page_one .left {
+    background-color: #EEEEEE;
+    float: left;
+    width: 40%;
     position: absolute;
-    margin-top: -108px;
-    display: none;
-    border: 1px solid #5F9CBF;
+    height: auto;
 }
 
-.hanafuda_bak:hover {
-    border-color: #FFFFFF;
+#page_one .left .line {
+
+    height: 100%;
+    position: absolute;
 }
 
-.hanafuda_bak p {
-    margin-top: 40px;
-    cursor: default;
+#page_one .line img {
+    width: 24%;
+    /*width: 22%;*/
+    margin-bottom: -2vw;
 }
 
-.hanafuda_name {
+.hanafuda_img_right {
+    transform: rotate(30deg);
+    -ms-transform: rotate(30deg); /* IE 9 */
+    -webkit-transform: rotate(30deg); /* Safari and Chrome */
+    -o-transform: rotate(30deg); /* Opera */
+    -moz-transform: rotate(30deg); /* Firefox */
+}
+
+.hanafuda_img_left {
+    transform: rotate(-30deg);
+    -ms-transform: rotate(-30deg); /* IE 9 */
+    -webkit-transform: rotate(-30deg); /* Safari and Chrome */
+    -o-transform: rotate(-30deg); /* Opera */
+    -moz-transform: rotate(-30deg); /* Firefox */
+}
+
+#page_one .right {
+    height: 100%;
+    background-color: #EEEEEE;
+    float: right;
+    width: 60%;
+}
+
+#page_one .right .jumbotron {
+    height: 100%;
+    /*height: auto;*/
+    text-align: center;
+    /*margin-top: 0px;*/
+    /*margin-bottom: 0px;*/
+    /*padding-bottom: 0px;*/
+    /*padding-top: 0px;*/
+}
+
+#page_one .right .jumbotron h1 {
+    margin-top: 20px;
+    color: #D84040;
+    font-size: 4vw;
+}
+
+#page_one .right .jumbotron .content {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    width: 80%;
+    text-align: left;
+    font-size: 2vw;
+}
+
+#page_one .right .jumbotron .btn-p {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+
+#page_two {
+    height: 100%;
+}
+
+#page_two .top {
+    height: 50%;
+    /*background-color: #0c91e5;*/
+}
+
+#page_two .bottom {
+    height: 50%;
+    /*background-color: #0c91e5;*/
+}
+
+#page_two img {
+    width: 98%;
+}
+
+#page_two table {
+    width: 50%;
+    height: 100%;
     text-align: center;
 }

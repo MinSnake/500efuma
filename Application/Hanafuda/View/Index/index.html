@@ -1,44 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>花札 / 花かるた</title>
     <meta charset="UTF-8">
-    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <!-- Bootstrap -->
     <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
     <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
     <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <title>Title</title>
+    <!-- fullPage -->
+    <link rel="stylesheet" href="__ROOT__/Template/css/jquery.fullPage.css">
+    <script src="__ROOT__/Template/js/jquery-1.9.1.min.js"></script>
+    <script src="__ROOT__/Template/js/jquery.fullPage.min.js"></script>
+    <script src="__ROOT__/Template/js/jquery.easing.min.js"></script>
+
+    <script src="__JS__/index.js"></script>
+    <link rel="stylesheet" href="__CSS__/index.css">
 </head>
 <body>
 
-<!--
-    margin-left: auto;
-    margin-right: auto;
--->
-
-<div class="jumbotron" style="text-align: center">
-    <h1>花札 / 花かるた</h1>
-    <div class="media" style="margin-left: auto;margin-right: auto;width: 70%;margin-top: 70px">
-        <img class="media-object" src="__IMAGES__/Hanafuda-Koi-Koi.jpg" style="float: left;width: 350px">
-        <p style="text-indent:2em;text-align: left;margin-bottom: 0px;">
-            花札亦称为花牌、花斗，是源于日本，后于朝鲜王朝后期传到朝鲜半岛的一种传统纸牌游戏。
-        </p>
-        <p style="text-indent:2em;text-align: left;margin-bottom: 0px;">
-            目前一般的花札都是所谓的“八八花”，卡片上画有12个月份的花草，每种各4张，整组48张。
-        </p>
-        <p style="text-indent:2em;text-align: left;margin-bottom: 0px;">
-            一般两人玩的叫“来来”（日语：こいこい，两人以上玩的叫“花合わせ”（罗马字：Hana-awase），不过在日本花札爱好者之中属八八的玩法最受欢迎。
-        </p>
-        <p style="text-indent:2em;text-align: left;margin-bottom: 0px;">
-            韩国则以GO-STOP玩法最热门，并且在日本与朝鲜半岛的许多地区都有本地的独特玩法。
-        </p>
+<div id="hanafuda">
+    <div id="page_one" class="section">
+        <div class="left">
+            <div class="line">
+                <img class="hanafuda_img_right" src="__IMAGES__/1/1.jpg">
+                <img class="hanafuda_img_right" src="__IMAGES__/1/2.jpg">
+                <img class="hanafuda_img_right" src="__IMAGES__/1/3.jpg">
+                <img class="hanafuda_img_left" src="__IMAGES__/2/4.jpg">
+                <img class="hanafuda_img_left" src="__IMAGES__/3/1.jpg">
+                <img class="hanafuda_img_right" src="__IMAGES__/7/2.jpg">
+                <img class="hanafuda_img_right" src="__IMAGES__/8/3.jpg">
+                <img class="hanafuda_img_right" src="__IMAGES__/9/4.jpg">
+                <img class="hanafuda_img_right" src="__IMAGES__/11/1.jpg">
+                <img class="hanafuda_img_left" src="__IMAGES__/7/1.jpg">
+                <img class="hanafuda_img_left" src="__IMAGES__/5/1.jpg">
+                <img class="hanafuda_img_left" src="__IMAGES__/3/4.jpg">
+                <img class="hanafuda_img_left" src="__IMAGES__/8/1.jpg">
+                <img class="hanafuda_img_left" src="__IMAGES__/12/2.jpg">
+                <img class="hanafuda_img_right" src="__IMAGES__/9/3.jpg">
+                <img class="hanafuda_img_right" src="__IMAGES__/10/1.jpg">
+                <img class="hanafuda_img_left" src="__IMAGES__/8/1.jpg">
+                <img class="hanafuda_img_left" src="__IMAGES__/12/2.jpg">
+                <img class="hanafuda_img_right" src="__IMAGES__/9/3.jpg">
+                <img class="hanafuda_img_right" src="__IMAGES__/10/1.jpg">
+                <img class="hanafuda_img_left" src="__IMAGES__/8/1.jpg">
+                <img class="hanafuda_img_left" src="__IMAGES__/12/2.jpg">
+                <img class="hanafuda_img_right" src="__IMAGES__/9/3.jpg">
+                <img class="hanafuda_img_right" src="__IMAGES__/10/1.jpg">
+                <img class="hanafuda_img_left" src="__IMAGES__/8/1.jpg">
+                <img class="hanafuda_img_left" src="__IMAGES__/12/2.jpg">
+                <img class="hanafuda_img_right" src="__IMAGES__/9/3.jpg">
+                <img class="hanafuda_img_right" src="__IMAGES__/10/1.jpg">
+                <img class="hanafuda_img_left" src="__IMAGES__/8/1.jpg">
+                <img class="hanafuda_img_left" src="__IMAGES__/12/2.jpg">
+                <img class="hanafuda_img_right" src="__IMAGES__/9/3.jpg">
+                <img class="hanafuda_img_right" src="__IMAGES__/10/1.jpg">
+            </div>
+        </div>
+        <div class="right">
+            <div class="jumbotron">
+                <h1>花札 / 花かるた</h1>
+                <p class="content">花札亦称为花牌、花斗，是源于日本，后于朝鲜王朝后期传到朝鲜半岛的一种传统纸牌游戏。</p>
+                <p class="content">目前一般的花札都是所谓的“八八花”，卡片上画有12个月份的花草，每种各4张，整组48张。</p>
+                <p class="content">一般两人玩的叫“来来”（日语：こいこい，两人以上玩的叫“花合わせ”（罗马字：Hana-awase），不过在日本花札爱好者之中属八八的玩法最受欢迎。</p>
+                <p class="content">韩国则以GO-STOP玩法最热门，并且在日本与朝鲜半岛的许多地区都有本地的独特玩法。</p>
+                <p class="content">任天堂公司在跨入电子游戏产业之前就是靠制造花札起家。</p>
+            </div>
+        </div>
     </div>
-    <p><a class="btn btn-primary btn-lg" href="#" role="button">了解更多</a></p>
+
+
+    <div id="page_two" class="section">
+
+        <for start="1" end="4" name="i">
+            <div class="slide">
+                <div class="top">
+                    <table style="float: left">
+                        <tr style="height: 10%">
+                            <td colspan="4">{$i * 4 - 3}月</td>
+                        </tr>
+                        <tr style="height: 80%">
+                            <td style="width: 25%"><img src="__IMAGES__/{$i * 4 - 3}/1.jpg"></td>
+                            <td style="width: 25%"><img src="__IMAGES__/{$i * 4 - 3}/2.jpg"></td>
+                            <td style="width: 25%"><img src="__IMAGES__/{$i * 4 - 3}/3.jpg"></td>
+                            <td style="width: 25%"><img src="__IMAGES__/{$i * 4 - 3}/4.jpg"></td>
+                        </tr>
+                        <tr style="height: 10%">
+                            <td style="width: 25%">{$hanaList[$i*16 - 16]['name_cn']}</td>
+                            <td style="width: 25%">{$hanaList[$i*16 - 15]['name_cn']}</td>
+                            <td style="width: 25%">{$hanaList[$i*16 - 14]['name_cn']}</td>
+                            <td style="width: 25%">{$hanaList[$i*16 - 13]['name_cn']}</td>
+                        </tr>
+                    </table>
+                    <table style="float: right">
+                        <tr style="height: 10%">
+                            <td colspan="4">{$i * 4 - 2}月</td>
+                        </tr>
+                        <tr style="height: 80%">
+                            <td style="width: 25%"><img src="__IMAGES__/{$i * 4 - 2}/1.jpg"></td>
+                            <td style="width: 25%"><img src="__IMAGES__/{$i * 4 - 2}/2.jpg"></td>
+                            <td style="width: 25%"><img src="__IMAGES__/{$i * 4 - 2}/3.jpg"></td>
+                            <td style="width: 25%"><img src="__IMAGES__/{$i * 4 - 2}/4.jpg"></td>
+                        </tr>
+                        <tr style="height: 10%">
+                            <td style="width: 25%">{$hanaList[$i*16 - 12]['name_cn']}</td>
+                            <td style="width: 25%">{$hanaList[$i*16 - 11]['name_cn']}</td>
+                            <td style="width: 25%">{$hanaList[$i*16 - 10]['name_cn']}</td>
+                            <td style="width: 25%">{$hanaList[$i*16 -  9]['name_cn']}</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="bottom">
+                    <table style="float: left">
+                        <tr style="height: 10%">
+                            <td colspan="4">{$i * 4 - 1}月</td>
+                        </tr>
+                        <tr style="height: 80%">
+                            <td style="width: 25%"><img src="__IMAGES__/{$i * 4 - 1}/1.jpg"></td>
+                            <td style="width: 25%"><img src="__IMAGES__/{$i * 4 - 1}/2.jpg"></td>
+                            <td style="width: 25%"><img src="__IMAGES__/{$i * 4 - 1}/3.jpg"></td>
+                            <td style="width: 25%"><img src="__IMAGES__/{$i * 4 - 1}/4.jpg"></td>
+                        </tr>
+                        <tr style="height: 10%">
+                            <td style="width: 25%">{$hanaList[$i*16 - 8]['name_cn']}</td>
+                            <td style="width: 25%">{$hanaList[$i*16 - 7]['name_cn']}</td>
+                            <td style="width: 25%">{$hanaList[$i*16 - 6]['name_cn']}</td>
+                            <td style="width: 25%">{$hanaList[$i*16 - 5]['name_cn']}</td>
+                        </tr>
+                    </table>
+                    <table style="float: right">
+                        <tr style="height: 10%">
+                            <td colspan="4">{$i * 4 - 0}月</td>
+                        </tr>
+                        <tr style="height: 80%">
+                            <td style="width: 25%"><img src="__IMAGES__/{$i * 4 - 0}/1.jpg"></td>
+                            <td style="width: 25%"><img src="__IMAGES__/{$i * 4 - 0}/2.jpg"></td>
+                            <td style="width: 25%"><img src="__IMAGES__/{$i * 4 - 0}/3.jpg"></td>
+                            <td style="width: 25%"><img src="__IMAGES__/{$i * 4 - 0}/4.jpg"></td>
+                        </tr>
+                        <tr style="height: 10%">
+                            <td style="width: 25%">{$hanaList[$i*16 - 4]['name_cn']}</td>
+                            <td style="width: 25%">{$hanaList[$i*16 - 3]['name_cn']}</td>
+                            <td style="width: 25%">{$hanaList[$i*16 - 2]['name_cn']}</td>
+                            <td style="width: 25%">{$hanaList[$i*16 - 1]['name_cn']}</td>
+                        </tr>
+                    </table>
+                </div>
+
+
+            </div>
+        </for>
+
+
+
+
+    </div>
+
+    <div id="page_three" class="section">
+        3333
+    </div>
+
+
 </div>
-
-
 </body>
 </html>

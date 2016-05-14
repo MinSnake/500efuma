@@ -16,6 +16,8 @@ class IndexController extends Controller
 
     public function index()
     {
+        $hanaList = $this->hanafudaModel->getHanaList();
+        $this->assign('hanaList', $hanaList);
         $this->display();
     }
 
