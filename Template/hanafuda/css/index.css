@@ -84,6 +84,7 @@ html, body {
 }
 
 #page_two .top {
+    float: left;
     height: 50%;
 }
 
@@ -92,7 +93,7 @@ html, body {
 }
 
 #page_two img {
-    vertical-align: bottom;
+    /*vertical-align: bottom;*/
     /*vertical-align: middle;*/
     width: 99%;
     /*width: 100%;*/

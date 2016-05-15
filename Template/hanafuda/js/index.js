@@ -6,6 +6,10 @@ $(function () {
         // scrollOverflow : true,
         // slidesNavigation : true,
         controlArrowColor: '#9CB6D0',
+        afterLoad: function (anchorLink, index) {
+            // console.log('afterLoad');
+        },
+
 
     });
 
