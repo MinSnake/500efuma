@@ -27,14 +27,15 @@ class DotModel {
             call_user_func_array(array($this,$f),$args);
         }
     }
-	
+
 	/**
 	 * @todo 有赤牌版本
-	 * @param $fn 				dora
-	 * @param $dora_number		dora个数,最多4个
-	 * @param $dora_tile_no		定义为dora的数字		
+	 * @param $fn                dora
+	 * @param int $number_dora
+	 * @param int|定义为dora的数字 $dora_tile_no 定义为dora的数字
+	 * @internal param dora个数 $dora_number ,最多4个
 	 * @author Saki <ilulu4ever816@gmail.com>
-	 * @date 2015-07-23 上午 2:27:19 
+	 * @date 2015-07-23 上午 2:27:19
 	 */
 	private function __construct_dora($fn,$number_dora=1,$dora_tile_no=5){
 	    $tile_list = array();

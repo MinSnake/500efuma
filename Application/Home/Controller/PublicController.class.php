@@ -75,9 +75,9 @@ class PublicController extends HomeBaseController{
 	 */
 	public function builder_verify_img(){
         $verify = new \Think\Verify();
-        $verify->length = 4;
+        $verify->length = 6;
         $verify->fontSize = 100;
-        $verify->codeSet = '0123456789';
+        $verify->codeSet = '0123456789QWERTYUIOPASDFGHJKLZXCVBNM';
 //         $verify->useImgBg = true;
 		$verify->entry();
 	}
