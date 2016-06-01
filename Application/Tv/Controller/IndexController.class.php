@@ -12,10 +12,11 @@ class IndexController extends Controller {
      * @version V1.0
      */
     public function index(){
-
-
-
         $this->display();
+    }
+
+    public function info(){
+        phpinfo();
     }
 
 }
