@@ -192,6 +192,86 @@ function resolveXML($xml){
 	return $res;
 }
 
+function getAllUserConf()
+{
+    $userList = array(
+        array(
+            'name'       => 'CC',
+            'qq'         => '327918461',
+            'email'      => '327918461@qq.com',
+            'headimgurl' => '/Upload/headimg/2.jpg',
+        ),
+        array(
+            'name'       => '小野',
+            'qq'         => '839505713',
+            'email'      => '839505713@qq.com',
+            'headimgurl' => '/Upload/headimg/5.jpg',
+        ),
+        array(
+            'name'       => '宥姐',
+            'qq'         => '743532251',
+            'email'      => '743532251@qq.com',
+            'headimgurl' => '/Upload/headimg/3.jpg',
+        ),
+        array(
+            'name'       => '福妈',
+            'qq'         => '609883609',
+            'email'      => '609883609@qq.com',
+            'headimgurl' => '/Upload/headimg/4.jpg',
+        ),
+        array(
+            'name'       => '百合',
+            'qq'         => '461558577',
+            'email'      => '461558577@qq.com',
+            'headimgurl' => '/Upload/headimg/6.jpg',
+        ),
+        array(
+            'name'       => '佳织',
+            'qq'         => '441391504',
+            'email'      => '441391504@qq.com',
+            'headimgurl' => '/Upload/headimg/11.jpg',
+        ),
+        array(
+            'name'       => '哲士',
+            'qq'         => '547683826',
+            'email'      => '547683826@qq.com',
+            'headimgurl' => '/Upload/headimg/9.jpg',
+        ),
+        array(
+            'name'       => '六花',
+            'qq'         => '327469590',
+            'email'      => '327469590@qq.com',
+            'headimgurl' => '/Upload/headimg/8.jpg',
+        ),
+        array(
+            'name'       => '角虫',
+            'qq'         => '16707696',
+            'email'      => '16707696@qq.com',
+            'headimgurl' => '/Upload/headimg/10.jpg',
+        ),
+        array(
+            'name'       => '龙华',
+            'qq'         => '931757623',
+            'email'      => '931757623@qq.com',
+            'headimgurl' => '/Upload/headimg/7.jpg',
+        ),
+        array(
+            'name'       => '魔王',
+            'qq'         => '395408934',
+            'email'      => '395408934@qq.com',
+            'headimgurl' => '/Upload/headimg/1.jpg',
+        ),
+        array(
+            'name'       => '透华',
+            'qq'         => '317514274',
+            'email'      => '317514274@qq.com',
+            'headimgurl' => '/Upload/headimg/12.jpg',
+        ),
+    );
+    return $userList;
+}
+
+
 /**
  * @todo: 解析朕的爱卿的QQ号  O(∩_∩)O哈哈~ 
  * @param $qq	QQ号    
@@ -203,60 +283,65 @@ function resolveQQ($qq){
 	$data['errcode'] = 1;
 	switch ($qq) {
 		case '327918461':
-			$name = '小CC';
+			$name = 'CC';
 			$email = '327918461@qq.com';
 			$headimgurl = '/Upload/headimg/2.jpg';
-		break;
+		    break;
 		case '839505713':
-			$name = '小小野';
+			$name = '小野';
 			$email = '839505713@qq.com';
 			$headimgurl = '/Upload/headimg/5.jpg';
-		break;
+		    break;
 		case '743532251':
-			$name = '小宥姐';
+			$name = '宥姐';
 			$email = '743532251@qq.com';
 			$headimgurl = '/Upload/headimg/3.jpg';
-		break;
+		    break;
 		case '609883609':
-			$name = '小福妈';
+			$name = '福妈';
 			$email = '609883609@qq.com';
 			$headimgurl = '/Upload/headimg/4.jpg';
-		break;
+		    break;
 		case '461558577':
-			$name = '小百合';
+			$name = '百合';
 			$email = '461558577@qq.com';
 			$headimgurl = '/Upload/headimg/6.jpg';
-		break;
+		    break;
 		case '441391504':
-			$name = '小佳织';
+			$name = '佳织';
 			$email = '441391504@qq.com';
 			$headimgurl = '/Upload/headimg/11.jpg';
-		break;
+		    break;
 		case '547683826':
-			$name = '小哲士';
+			$name = '哲士';
 			$email = '547683826@qq.com';
 			$headimgurl = '/Upload/headimg/9.jpg';
-		break;
+		    break;
 		case '327469590':
-			$name = '小人妻';
+			$name = '六花';
 			$email = '327469590@qq.com';
 			$headimgurl = '/Upload/headimg/8.jpg';
-		break;
+		    break;
 		case '16707696':
-			$name = '小角虫';
+			$name = '角虫';
 			$email = '16707696@qq.com';
 			$headimgurl = '/Upload/headimg/10.jpg';
-		break;
+		    break;
 		case '931757623':
-			$name = '小龙华';
+			$name = '龙华';
 			$email = '931757623@qq.com';
 			$headimgurl = '/Upload/headimg/7.jpg';
-		break;
+		    break;
 		case '395408934':
-			$name = '小魔王';
+			$name = '魔王';
 			$email = '395408934@qq.com';
 			$headimgurl = '/Upload/headimg/1.jpg';
-		break;
+		    break;
+		case '317514274':
+			$name = '透华';
+			$email = '317514274@qq.com';
+			$headimgurl = '/Upload/headimg/12.jpg';
+            break;
 		default:
 			$data['errcode'] = 0;
 			$name = '';
