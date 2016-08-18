@@ -12,7 +12,7 @@ return array(
 	'DB_HOST'=> 'localhost',
 	'DB_USER'=> 'root',
 //	'DB_PWD'=> 'root',    	//本地数据库密码
-	'DB_PWD'=> 'saki500efuma',    	//本地数据库密码
+	'DB_PWD'=> 'root',    	//本地数据库密码
 
 	/*本地开发用*/
 //	'DB_HOST'=> '10.0.0.173',
