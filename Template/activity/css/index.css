@@ -1,87 +1,90 @@
 html, body {
     margin: 0px;
     padding: 0px;
-    width: 100%;
-    height: 100%;
+    /*width: 100%;*/
+    /*height: 100%;*/
 }
 
 body {
-    background: #ffe9ad;
+    /*background: #ffe9ad;*/
+}
+
+.row {
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+}
+
+.line {
+    width: 100%;
+    height: 2px;
+    background: #fff;
 }
 
 #center-container {
-    width: 80%;
-    height: 80%;
+    width: 70%;
     margin-left: auto;
     margin-right: auto;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translateX(-50%) translateY(-50%);
 }
+
+/****************标题*************/
 
 #center-container .module_one {
-    height: 50%;
-    width: 50%;
-    background: #fff;
-    float: left;
-    z-index: 10;
-    position: absolute;
+    text-align: center;
 }
 
+#center-container .module_one .logo-img {
+    max-width: 100%;
+}
+
+/*********奖品显示***********/
+
 #center-container .module_two {
-    height: 50%;
-    width: 50%;
-    background: #968f8e;
-    float: right;
-    z-index: 8;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 #center-container .module_three {
-    height: 50%;
-    width: 50%;
-    background: #bed8f7;
-    float: left;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 #center-container .module_four {
-    height: 50%;
-    width: 50%;
-    background: #bcc1b8;
-    float: right;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
-#top-container {
-    width: 100%;
-    height: 10%;
-    background-color: #938cbb;
-    position: relative;
+#center-container .module_five {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
-#botoom-container {
-    width: 100%;
-    height: 10%;
-    background-color: #4da98f;
-    position: fixed;
-    top: 90%;
+#center-container .module_five th {
+    text-align: center;
 }
+
+#center-container .module_five td {
+    text-align: center;
+    font-size: 25px;
+}
+
+/************妖怪显示*************/
 
 #left-container {
-    width: 10%;
+    width: 15%;
     margin-top: 0%;
-    background: #af9292;
+    /*background: #af9292;*/
     float: left;
-    height: 80%;
+    height: 100%;
 }
 
 #right-container {
-    width: 10%;
+    width: 15%;
     margin-top: 0%;
-    background: #929caf;
+    /*background: #929caf;*/
     float: right;
-    height: 80%;
-}
-
-.kawayi_moster {
-    width: 50px;
+    height: 100%;
 }

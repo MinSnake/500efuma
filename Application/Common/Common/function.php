@@ -241,7 +241,7 @@ function getAllUserConf()
             'name'       => '六花',
             'qq'         => '327469590',
             'email'      => '327469590@qq.com',
-            'headimgurl' => '/Upload/headimg/8.jpg',
+            'headimgurl' => '/Upload/headimg/8.gif',
         ),
         array(
             'name'       => '角虫',

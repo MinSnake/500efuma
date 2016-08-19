@@ -5,60 +5,167 @@
     <title>三周年抽奖</title>
     <script type="text/javascript" src="__ROOT__/Template/js/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="__ROOT__/Template/activity/js/index.js"></script>
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
     <link rel="stylesheet" href="__ROOT__/Template/activity/css/index.css" type="text/css"/>
 </head>
 
 <body>
-
-<div id="top-container">
-    <img src="../../../../Template/activity/img/1.png" class="kawayi_moster">
-    <img src="../../../../Template/activity/img/2.png" class="kawayi_moster">
-    <img src="../../../../Template/activity/img/3.png" class="kawayi_moster">
-    <img src="../../../../Template/activity/img/4.png" class="kawayi_moster">
-    <img src="../../../../Template/activity/img/5.png" class="kawayi_moster">
-    <img src="../../../../Template/activity/img/6.png" class="kawayi_moster">
-    <img src="../../../../Template/activity/img/7.png" class="kawayi_moster">
-    <img src="../../../../Template/activity/img/8.png" class="kawayi_moster">
-    <img src="../../../../Template/activity/img/9.png" class="kawayi_moster">
-    <img src="../../../../Template/activity/img/10.png" class="kawayi_moster">
-    <img src="../../../../Template/activity/img/11.png" class="kawayi_moster">
-    <img src="../../../../Template/activity/img/12.png" class="kawayi_moster">
-    <img src="../../../../Template/activity/img/13.png" class="kawayi_moster">
-    <img src="../../../../Template/activity/img/14.png" class="kawayi_moster">
-</div>
-
 <div id="left-container">
-    left
+    <!--<img src="../../../../Template/activity/img/1.png" class="kawayi_moster">-->
+    <!--<img src="../../../../Template/activity/img/2.png" class="kawayi_moster">-->
+    <!--<img src="../../../../Template/activity/img/3.png" class="kawayi_moster">-->
+    <!--<img src="../../../../Template/activity/img/4.png" class="kawayi_moster">-->
+    <!--<img src="../../../../Template/activity/img/5.png" class="kawayi_moster">-->
+    <!--<img src="../../../../Template/activity/img/6.png" class="kawayi_moster">-->
+    <!--<img src="../../../../Template/activity/img/7.png" class="kawayi_moster">-->
+    <!--<img src="../../../../Template/activity/img/8.png" class="kawayi_moster">-->
+    <!--<img src="../../../../Template/activity/img/9.png" class="kawayi_moster">-->
+    <!--<img src="../../../../Template/activity/img/10.png" class="kawayi_moster">-->
+    <!--<img src="../../../../Template/activity/img/11.png" class="kawayi_moster">-->
+    <!--<img src="../../../../Template/activity/img/12.png" class="kawayi_moster">-->
+    <!--<img src="../../../../Template/activity/img/13.png" class="kawayi_moster">-->
+    <!--<img src="../../../../Template/activity/img/14.png" class="kawayi_moster">-->
 </div>
 
 <div id="right-container">
-    right
-</div>
-
-<div id="botoom-container">
-    botoom
 </div>
 
 
 <div id="center-container">
 
     <div class="module_one">
-        <img src="../../../../Template/activity/img/zhounianqingdian.png">
+        <img class="logo-img" src="../../../../Template/activity/img/zhounianqingdian.png">
     </div>
+
+    <!--<div class="line"></div>-->
 
     <div class="module_two">
-        2
+        <div class="panel panel-primary">
+            <div class="panel-heading">ROLL点奖品说明</div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-4 col-md-4">
+                        <div class="thumbnail">
+                            <img src="../../../../Template/activity/img/prize_1.jpg" alt="...">
+                            <div class="caption">
+                                <h3>黏土手办</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md-4">
+                        <div class="thumbnail">
+                            <img src="../../../../Template/activity/img/prize_2.jpg" alt="...">
+                            <div class="caption">
+                                <h3>零食</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md-4">
+                        <div class="thumbnail">
+                            <img src="../../../../Template/activity/img/prize_3.jpg" alt="...">
+                            <div class="caption">
+                                <h3>咸鱼抱枕</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
+
     <div class="module_three">
-        3
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">参加人员</h3>
+            </div>
+            <div class="panel-body">
+
+                <div class="row">
+
+                    <volist name="userList" id="user">
+                        <div class="col-xs-6 col-md-2">
+                            <a href="#" class="thumbnail">
+                                <img style="max-width: 70%;" src="{$user.headimgurl}" alt="...">
+                            </a>
+                        </div>
+                    </volist>
+                </div>
+
+            </div>
+        </div>
+
     </div>
 
     <div class="module_four">
-        4
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">翻滚吧！数字！</h3>
+            </div>
+            <div class="panel-body">
+
+
+                <div class="row">
+                    <div class="col-xs-6 col-md-4">
+                        <a href="javascript:void(0);" class="thumbnail">
+                            <h1>0</h1>
+                        </a>
+                    </div>
+                    <div class="col-xs-6 col-md-4">
+                        <a href="javascript:void(0);" class="thumbnail">
+                            <h1>0</h1>
+                        </a>
+                    </div>
+                    <div class="col-xs-6 col-md-4">
+                        <a href="javascript:void(0);" class="thumbnail">
+                            <h1>0</h1>
+                        </a>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-success btn-lg col-md-12">ROLL</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="module_five">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">排行榜</h3>
+            </div>
+            <div class="panel-body">
+                <table class="table table-hover" style="text-align: center">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>头像</th>
+                        <th>名称</th>
+                        <th>点数</th>
+                    </tr>
+                    </thead>
+                    <volist name="userList" id="user" key="k">
+                        <tr>
+                            <td width="5%">{$k}</td>
+                            <td width="20%"><img style="width: 30%;border-radius: 55px;" src="{$user.headimgurl}"></td>
+                            <td>{$user.name}</td>
+                            <td>xxx</td>
+                        </tr>
+                    </volist>
+                </table>
+            </div>
+        </div>
     </div>
 
 </div>
-
 
 
