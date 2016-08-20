@@ -71,6 +71,10 @@ body {
     font-size: 25px;
 }
 
+.roll_num {
+    font-size: 80px;
+}
+
 /************妖怪显示*************/
 
 #left-container {

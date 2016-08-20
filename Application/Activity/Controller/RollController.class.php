@@ -18,15 +18,14 @@ class RollController extends Controller
         $this->display();
     }
 
-    public function login()
-    {
-
-    }
 
     public function roll()
     {
-
-
+        //生成随机数
+        $num = rand(0, 100);
+        $data['num'] = $num;
+        //结果保存
+        $this->ajaxReturn($data);
     }
 
 }

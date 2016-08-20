@@ -5,18 +5,8 @@
     <title>三周年抽奖</title>
     <script type="text/javascript" src="__ROOT__/Template/js/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="__ROOT__/Template/activity/js/index.js"></script>
-    <!-- 新 Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
-
-    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
-    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-
-    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-
-    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
     <link rel="stylesheet" href="__ROOT__/Template/activity/css/index.css" type="text/css"/>
 </head>
 
@@ -120,21 +110,21 @@
                 <div class="row">
                     <div class="col-xs-4 col-md-4">
                         <a href="javascript:void(0);" class="thumbnail">
-                            <h1>0</h1>
+                            <h1 class="roll_num" id="num_1">0</h1>
                         </a>
                     </div>
                     <div class="col-xs-4 col-md-4">
                         <a href="javascript:void(0);" class="thumbnail">
-                            <h1>0</h1>
+                            <h1 class="roll_num" id="num_2">0</h1>
                         </a>
                     </div>
                     <div class="col-xs-4 col-md-4">
                         <a href="javascript:void(0);" class="thumbnail">
-                            <h1>0</h1>
+                            <h1 class="roll_num" id="num_3">0</h1>
                         </a>
                     </div>
                 </div>
-                <button type="button" class="btn btn-success btn-lg col-md-12">ROLL</button>
+                <button type="button" class="btn btn-success btn-lg col-md-12" id="roll-btn">ROLL</button>
             </div>
         </div>
     </div>
