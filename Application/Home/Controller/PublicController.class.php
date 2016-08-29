@@ -22,11 +22,13 @@ class PublicController extends HomeBaseController{
 		$state_arr = explode('-', $state);
 		if ($state_arr[3] == 'roll' && $state_arr[4] == '500efuma')
 		{
-			$qqUtil = new \Org\QQ\QQUtil('roll');
-		}
-		else
-		{
-			$qqUtil = new \Org\QQ\QQUtil();
+            Log::write('发现是roll', 'ALERT');
+            $qqUtil = new \Org\QQ\QQUtil('roll');
+        }
+        else
+        {
+            Log::write('发现是www', 'ALERT');
+            $qqUtil = new \Org\QQ\QQUtil();
 		}
 		$session_state = session('state');
 		//Step3：通过Authorization Code获取Access Token

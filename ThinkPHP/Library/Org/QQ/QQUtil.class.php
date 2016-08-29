@@ -1,5 +1,7 @@
 <?php
 namespace Org\QQ;
+use Think\Log;
+
 /**
  * @todo: QQ接入处理
  * @author Saki <ilulu4ever816@gmail.com>
@@ -48,6 +50,7 @@ class QQUtil {
 			$data['errcode'] = 1;
 			$data['data'] = $params;
 		}
+        Log::write('getAccessToken: ' . var_dump($data, true), 'ALERT');
 		return $data;
 	}
 	
