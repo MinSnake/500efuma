@@ -17,10 +17,11 @@ class PublicController extends HomeBaseController{
  	 * @date 2015-05-16 上午2:47:17 
 	 */
 	public function qqlogin(){
+        Log::write('qqlogin', 'ALERT');
 		$code = $_GET['code'];
 		$state = $_GET['state'];//存储文章ID
 		$state_arr = explode('-', $state);
-		if ($state_arr[3] == 'roll' && $state_arr[4] == '500efuma')
+		if ($state_arr[1] == 'Roll')
 		{
             Log::write('发现是roll', 'ALERT');
             $qqUtil = new \Org\QQ\QQUtil('roll');
@@ -74,7 +75,7 @@ class PublicController extends HomeBaseController{
 	    $state = $_GET['state'];
 	    //跳转到当前浏览的帖子
 	    $state_arr = explode('-', $state);
-	    $this->redirect($state_arr[1].'/'.$state_arr[2],array($state_arr[3]=>$state_arr[4]));
+	    $this->redirect($state_arr[0] . '/' .$state_arr[1].'/'.$state_arr[2],array($state_arr[3]=>$state_arr[4]));
 	}
 
 
