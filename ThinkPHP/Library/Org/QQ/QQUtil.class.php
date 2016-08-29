@@ -30,7 +30,7 @@ class QQUtil {
 	public function getAccessToken($code){
 		$token_url = "https://graph.qq.com/oauth2.0/token?grant_type=authorization_code&"
 					. "client_id=" . $this->app_id . "&redirect_uri=" . urlencode($this->redirect_uri)
-					. "&client_secret=" . '09fc27016ac20dcbbf14b5be8faddff1' . "&code=" . $code;
+					. "&client_secret=" . $this->app_key . "&code=" . $code;
 		$response = file_get_contents($token_url);
 		//获取失败处理
 		if (strpos($response, "callback") !== false){
@@ -73,7 +73,7 @@ class QQUtil {
 	public function getUserInfo($access_token,$openid){
 		$get_user_info_url = "https://graph.qq.com/user/get_user_info?".
 				"access_token=$access_token&".
-				"oauth_consumer_key=101215106&".
+				"oauth_consumer_key=".$this->app_id."&".
 				"openid=$openid";
 		$res_json = file_get_contents($get_user_info_url);
 		$res_json_obj = json_decode($res_json);
