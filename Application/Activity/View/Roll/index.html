@@ -137,12 +137,16 @@
                 </div>
 
 
-                <if condition="$is_qq_login neq 1">
+                <if condition="$is_qq_login eq 1">
                     <button type="button" class="btn btn-success btn-lg col-md-12" id="qq-login">QQ登录</button>
                     <else />
                     <button type="button" class="btn btn-success btn-lg col-md-6" id="roll-btn">ROLL</button>
                     <br>
-                    {$qq_nickname}
+                    大魔王
+
+                    <img style="max-width: 50%;" class="img-responsive "
+                         src="http://q.qlogo.cn/qqapp/101346347/AFF01B8D423447C3D50CDD893F5E61F4/40">
+
                     <button type="button" class="btn btn-danger btn-lg col-md-6" id="qq-logout">退出登录</button>
                 </if>
 
