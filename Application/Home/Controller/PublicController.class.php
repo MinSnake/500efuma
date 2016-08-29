@@ -17,9 +17,17 @@ class PublicController extends HomeBaseController{
  	 * @date 2015-05-16 上午2:47:17 
 	 */
 	public function qqlogin(){
-		$qqUtil = new \Org\QQ\QQUtil();
 		$code = $_GET['code'];
 		$state = $_GET['state'];//存储文章ID
+		$state_arr = explode('-', $state);
+		if ($state_arr[3] == 'roll' && $state_arr[4] == '500efuma')
+		{
+			$qqUtil = new \Org\QQ\QQUtil('roll');
+		}
+		else
+		{
+			$qqUtil = new \Org\QQ\QQUtil();
+		}
 		$session_state = session('state');
 		//Step3：通过Authorization Code获取Access Token
 		if ($session_state == $state){
@@ -46,7 +54,7 @@ class PublicController extends HomeBaseController{
 			cookie('qq_headurl',$user_info->figureurl_qq_1,3600*24*7);
 		}
 		//跳转到当前浏览的帖子
-		$state_arr = explode('-', $state);
+
 		$this->redirect($state_arr[0] . '/' . $state_arr[1].'/'.$state_arr[2],array($state_arr[3]=>$state_arr[4]));
 	}
 	

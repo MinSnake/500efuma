@@ -13,7 +13,6 @@ class RollController extends Controller
         unset($userList[8]);
         unset($userList[10]);
 
-
         //判断用户是否进行了QQ登录
         $qq_headurl = cookie('qq_headurl');
         $qq_nickname = cookie('qq_nickname');
@@ -21,8 +20,7 @@ class RollController extends Controller
         $is_qq_login = !empty($qq_headurl) ? 1 : 0;
         //qq-login-url
         $now_url = urlencode(C('QQ_REDIRECT_URI'));
-//        $state = Activity .'-'. Roll  . '-' . index .'-id-' . 0;
-        $state = MODULE_NAME .'-'. CONTROLLER_NAME  . '-' . ACTION_NAME .'-id-' . 0;
+        $state = MODULE_NAME .'-'. CONTROLLER_NAME  . '-' . ACTION_NAME .'-roll-500efuma';
         $qq_login_url = "https://graph.qq.com/oauth2.0/authorize?".
             "response_type=code&" .
             "client_id=101215106&" .

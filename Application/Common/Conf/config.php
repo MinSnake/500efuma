@@ -53,6 +53,10 @@ return array(
 	'QQ_REDIRECT_URI' => 'http://www.500efuma.com/Home/Public/qqlogin',	//线上域名根地址
 	'QQ_APP_ID' => '101215106',
 	'QQ_APP_KEY' => '09fc27016ac20dcbbf14b5be8faddff1',
+
+	'QQ_APP_ID_ROLL' => '101346347',
+	'QQ_APP_KEY_ROLL' => 'bd86f3f00c0bd5393976cc3c782e9b38',
+
 	'ADMIN_HEADIMG_URL' => '/Upload/headimg/saki.jpg',
 	'ADMIN_NAME' => '站长',
 	'ADMIN_EMAIL' => '395408934@qq.com',
