@@ -2,12 +2,14 @@
 namespace Activity\Controller;
 
 use Think\Controller;
+use Think\Log;
 
 class RollController extends Controller
 {
 
     public function index()
     {
+        Log::write('xx', 'ALERT');
         $userList = getAllUserConf();
         unset($userList[6]);
         unset($userList[8]);
