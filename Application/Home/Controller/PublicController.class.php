@@ -32,6 +32,8 @@ class PublicController extends HomeBaseController{
             $qqUtil = new \Org\QQ\QQUtil();
 		}
 		$session_state = session('state');
+        Log::write('$session_state:' . var_export($session_state, true), 'ALERT');
+
 		//Step3：通过Authorization Code获取Access Token
 		if ($session_state == $state){
 			$token_res = $qqUtil->getAccessToken($code);

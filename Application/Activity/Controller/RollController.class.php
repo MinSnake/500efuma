@@ -29,6 +29,7 @@ class RollController extends Controller
             "redirect_uri=$now_url&" .
             "state=".$state;
         $qq_logout_url = U('Public/qqlogout',array('state'=>$state));
+        session('state',$state);  //设置session
 
         $this->assign('userList', $userList);
 
