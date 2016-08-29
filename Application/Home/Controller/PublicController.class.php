@@ -47,7 +47,7 @@ class PublicController extends HomeBaseController{
 		}
 		//跳转到当前浏览的帖子
 		$state_arr = explode('-', $state);
-		$this->redirect($state_arr[1].'/'.$state_arr[2],array($state_arr[3]=>$state_arr[4]));
+		$this->redirect($state_arr[0] . '/' . $state_arr[1].'/'.$state_arr[2],array($state_arr[3]=>$state_arr[4]));
 	}
 	
 	

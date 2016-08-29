@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>三周年抽奖</title>
+    <meta property="qc:admins" content="351427627416141650056551637572744" />
     <script type="text/javascript" src="__ROOT__/Template/js/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="__ROOT__/Template/activity/js/index.js"></script>
     <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -12,11 +13,11 @@
 
 <body>
 
-<iframe frameborder="no" style="position: absolute;"
-        border="0" marginwidth="0" marginheight="0"
-        width=330 height=86
-        src="http://music.163.com/outchain/player?type=2&id=34916176&auto=1&height=66">
-</iframe>
+<!--<iframe frameborder="no" style="position: absolute;"-->
+        <!--border="0" marginwidth="0" marginheight="0"-->
+        <!--width=330 height=86-->
+        <!--src="http://music.163.com/outchain/player?type=2&id=34916176&auto=1&height=66">-->
+<!--</iframe>-->
 
 
 
@@ -134,7 +135,15 @@
                         </a>
                     </div>
                 </div>
-                <button type="button" class="btn btn-success btn-lg col-md-12" id="roll-btn">ROLL</button>
+
+
+                <if condition="$is_qq_login neq 1">
+                    <button type="button" class="btn btn-success btn-lg col-md-12" id="qq-login">QQ登录</button>
+                    <else />
+                    <button type="button" class="btn btn-success btn-lg col-md-6" id="roll-btn">ROLL</button>
+                    <button type="button" class="btn btn-danger btn-lg col-md-6" id="qq-logout">退出登录</button>
+                </if>
+
             </div>
         </div>
     </div>
@@ -169,4 +178,11 @@
 
 </div>
 
+<script type="text/javascript">
 
+    $("#qq-login").click(function(){
+        window.location.href = '{$qq_login_url}';
+    });
+
+
+</script>

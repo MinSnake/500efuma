@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    
 
     var timer_1 = null;
     var timer_2 = null;
