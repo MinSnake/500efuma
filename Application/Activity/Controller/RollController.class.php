@@ -23,7 +23,7 @@ class RollController extends Controller
         $state = MODULE_NAME .'-'. CONTROLLER_NAME  . '-' . ACTION_NAME .'-roll-500efuma';
         $qq_login_url = "https://graph.qq.com/oauth2.0/authorize?".
             "response_type=code&" .
-            "client_id=101215106&" .
+            "client_id=101346347&" .
             "redirect_uri=$now_url&" .
             "state=".$state;
         $qq_logout_url = U('Public/qqlogout',array('state'=>$state));
