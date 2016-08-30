@@ -161,7 +161,8 @@
 
 
                 <if condition="$is_qq_login neq 1">
-                    <h2>请先登录，仅第一次Roll点有效！</h2>
+                    <!--<h2>请先登录，仅第一次Roll点有效！</h2>-->
+                    <h2>请先登录，测试中，每次都有效！</h2>
                 <else />
                     <button type="button" class="btn btn-success btn-lg col-md-12" id="roll-btn">ROLL</button>
                 </if>
@@ -183,14 +184,16 @@
                         <th>头像</th>
                         <th>名称</th>
                         <th>点数</th>
+                        <th>时间</th>
                     </tr>
                     </thead>
-                    <volist name="userList" id="user" key="k">
+                    <volist name="rollList" id="user" key="k">
                         <tr>
                             <td width="5%">{$k}</td>
                             <td width="20%"><img style="width: 30%;border-radius: 55px;" src="{$user.headimgurl}"></td>
-                            <td>{$user.name}</td>
-                            <td>xxx</td>
+                            <td>{$user.nickname}</td>
+                            <td>{$user.roll}</td>
+                            <td><?php echo date('m-d H:i', $user['ctm'])?></td>
                         </tr>
                     </volist>
                 </table>

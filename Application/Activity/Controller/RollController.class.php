@@ -32,7 +32,20 @@ class RollController extends Controller
         $qq_logout_url = "http://activity.500efuma.com/Public/qqlogout/state/$state";
         session('state',$state);  //设置session
 
-        $this->assign('userList', $userList);
+
+        //roll点排行榜
+        $rollModel = M('roll');
+        $rollList = $rollModel->order('roll desc')->select();
+
+        foreach ($rollList as $k=>$info)
+        {
+            $qqLoginModel = new \Admin\Model\QqLoginModel();
+            $userInfo = $qqLoginModel->getInfoById($info['qq_id']);
+            $rollList[$k]['headimgurl'] = $userInfo['figureurl_qq_1_url'];
+            $rollList[$k]['nickname'] = $userInfo['nickname'];
+        }
+
+        $this->assign('rollList', $rollList);
 
         $this->assign('qq_logout_url', $qq_logout_url);
         $this->assign('qq_nickname', $qq_nickname);
@@ -74,7 +87,8 @@ class RollController extends Controller
         $cond['qq_id'] = $userInfo['id'];
         $is_has = $rollModel->where($cond)->find();
 
-        if (!$is_has)
+//        if (!$is_has)
+        if (true)
         {
             Log::write('发现没有历史数据，马上创建', 'ALERT');
 
