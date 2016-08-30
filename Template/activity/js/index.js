@@ -49,13 +49,13 @@ $(document).ready(function () {
 
     });
 
-
+    //http://www.500efuma.com/Activity/Roll/index/roll/roll/roll
     function get_rand_num()
     {
         var rand_num = 0;
         $.ajax({
             type: 'get',
-            url: "roll/roll",
+            url: "../../Roll/roll",
             async: false,
             success: function (data) {
                 // console.log(data);
