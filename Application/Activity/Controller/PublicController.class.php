@@ -2,7 +2,7 @@
 namespace Activity\Controller;
 
 use Think\Log;
-
+use Think\Controller;
 
 /**
  * @ClassName: Home\Controller$PublicController
@@ -10,7 +10,7 @@ use Think\Log;
  * @author Saki <ilulu4ever816@gmail.com>
  * @date 2014-12-3 下午4:52:06
  */
-class PublicController extends HomeBaseController
+class PublicController extends Controller
 {
 
     /**
@@ -61,7 +61,7 @@ class PublicController extends HomeBaseController
         }
         //跳转到当前浏览的帖子
 
-        $this->redirect( $state_arr[1] . '/' . $state_arr[2]);
+        $this->redirect($state_arr[1] . '/' . $state_arr[2]);
     }
 
 
@@ -80,9 +80,8 @@ class PublicController extends HomeBaseController
         $state = $_GET['state'];
         //跳转到当前浏览的帖子
         $state_arr = explode('-', $state);
-        $this->redirect( $state_arr[1] . '/' . $state_arr[2], array($state_arr[3] => $state_arr[4]));
+        $this->redirect($state_arr[1] . '/' . $state_arr[2], array($state_arr[3] => $state_arr[4]));
     }
-
 
 
 }
