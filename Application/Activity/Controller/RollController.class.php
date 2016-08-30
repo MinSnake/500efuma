@@ -48,12 +48,10 @@ class RollController extends Controller
     {
         //生成随机数
         $num = rand(0, 100);
-        $data['num'] = $num;
+        $res['num'] = $num;
         //结果保存
         $qqLoginModel = new QqLoginModel();
         $userInfo = $qqLoginModel->getInfoByOpenId();
-
-
 
         $rollModel = M('roll');
 
@@ -68,7 +66,7 @@ class RollController extends Controller
             $rollModel->add($data);
         }
 
-        $this->ajaxReturn($data);
+        $this->ajaxReturn($res);
     }
 
 }
