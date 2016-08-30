@@ -1,7 +1,6 @@
 <?php
 namespace Activity\Controller;
 
-use Admin\Model\QqLoginModel;
 use Think\Controller;
 use Think\Log;
 
@@ -42,6 +41,21 @@ class RollController extends Controller
         $this->assign('qq_login_url', $qq_login_url);
         $this->display();
     }
+    
+//    public function setCook()
+//    {
+//        $qqLoginModel = new \Admin\Model\QqLoginModel();
+//        $userInfo = $qqLoginModel->getInfoById(2);
+//        cookie('qq_nickname',$userInfo['nickname'],3600*24*7);
+//        cookie('qq_headurl',$userInfo['figureurl_qq_1_url'],3600*24*7);
+//        cookie('qq_openId',$userInfo['openid'],3600*24*7);
+//    }
+
+//    public function cleanCook(){
+//        cookie('qq_nickname',null);
+//        cookie('qq_headurl',null);
+//        cookie('qq_openId',null);
+//    }
 
 
     public function roll()

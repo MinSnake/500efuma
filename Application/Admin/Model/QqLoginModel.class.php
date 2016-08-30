@@ -1,5 +1,6 @@
 <?php
 namespace Admin\Model;
+use Think\Log;
 use Think\Model\RelationModel;
 
 /**
@@ -46,6 +47,13 @@ class QqLoginModel extends RelationModel {
         $cond['openid'] = $openId;
         return $this->where($cond)->find();
 	}
+
+
+    public function getInfoById($id)
+    {
+        $cond['id'] = $id;
+        return $this->where($cond)->find();
+    }
 	
 	public function updateToken(){
 		
