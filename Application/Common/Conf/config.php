@@ -56,6 +56,7 @@ return array(
 
 	'QQ_APP_ID_ROLL' => '101346347',
 	'QQ_APP_KEY_ROLL' => 'bd86f3f00c0bd5393976cc3c782e9b38',
+	'QQ_REDIRECT_URI_ROLL' => 'http://activity.500efuma.com/Public/qqlogin',	//线上域名根地址
 
 	'ADMIN_HEADIMG_URL' => '/Upload/headimg/saki.jpg',
 	'ADMIN_NAME' => '站长',

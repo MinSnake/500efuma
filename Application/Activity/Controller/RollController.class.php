@@ -21,7 +21,7 @@ class RollController extends Controller
         $headurl = !empty($qq_headurl) ? $qq_headurl : '/Template/admin/img/blog/21.png';
         $is_qq_login = !empty($qq_headurl) ? 1 : 0;
         //qq-login-url
-        $now_url = urlencode(C('QQ_REDIRECT_URI'));
+        $now_url = urlencode(C('QQ_REDIRECT_URI_ROLL'));
         $state = MODULE_NAME .'-'. CONTROLLER_NAME  . '-' . ACTION_NAME .'-roll-500efuma';
         $qq_login_url = "https://graph.qq.com/oauth2.0/authorize?".
             "response_type=code&" .
@@ -29,7 +29,7 @@ class RollController extends Controller
             "redirect_uri=$now_url&" .
             "state=".$state;
 //        $qq_logout_url = U('/Home/Public/qqlogout',array('state'=>$state));
-        $qq_logout_url = "http://www.500efuma.com/Home/Public/qqlogout/state/$state";
+        $qq_logout_url = "http://activity.500efuma.com/Public/qqlogout/state/$state";
         session('state',$state);  //设置session
 
         $this->assign('userList', $userList);

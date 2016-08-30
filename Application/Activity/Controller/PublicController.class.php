@@ -24,13 +24,13 @@ class PublicController extends Controller
         $code = $_GET['code'];
         $state = $_GET['state'];//存储文章ID
         $state_arr = explode('-', $state);
-        if ($state_arr[1] == 'Roll') {
-            Log::write('发现是roll', 'ALERT');
+//        if ($state_arr[1] == 'Roll') {
+//            Log::write('发现是roll', 'ALERT');
             $qqUtil = new \Org\QQ\QQUtil('roll');
-        } else {
-            Log::write('发现是www', 'ALERT');
-            $qqUtil = new \Org\QQ\QQUtil();
-        }
+//        } else {
+//            Log::write('发现是www', 'ALERT');
+//            $qqUtil = new \Org\QQ\QQUtil();
+//        }
         $session_state = session('state');
         Log::write('$session_state:' . var_export($session_state, true), 'ALERT');
 
