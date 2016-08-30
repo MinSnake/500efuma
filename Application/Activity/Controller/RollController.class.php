@@ -50,8 +50,10 @@ class RollController extends Controller
         $num = rand(0, 100);
         $res['num'] = $num;
         //结果保存
-        $qqLoginModel = new QqLoginModel();
+        $qqLoginModel = new \Admin\Model\QqLoginModel();
         $userInfo = $qqLoginModel->getInfoByOpenId();
+
+        Log::write('查询到用户信息'.var_export($userInfo, true), 'ALERT');
 
         $rollModel = M('roll');
 
@@ -60,10 +62,19 @@ class RollController extends Controller
 
         if (!$is_has)
         {
+            Log::write('发现没有历史数据，马上创建', 'ALERT');
+
             $data['qq_id'] = $userInfo['id'];
             $data['roll'] = $num;
             $data['ctm'] = time();
-            $rollModel->add($data);
+            $is_add = $rollModel->add($data);
+
+            if ($is_add === false)
+            {
+                Log::write('创建失败', 'ALERT');
+                Log::write('SQL:' . $rollModel->_sql() , 'ALERT');
+            }
+
         }
 
         $this->ajaxReturn($res);

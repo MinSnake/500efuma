@@ -40,6 +40,9 @@ class QqLoginModel extends RelationModel {
 	public function getInfoByOpenId()
 	{
         $openId = cookie('qq_openId');
+
+        Log::write('查询到$openId'.var_export($openId, true), 'ALERT');
+
         $cond['openid'] = $openId;
         return $this->where($cond)->find();
 	}
