@@ -7,6 +7,9 @@ $(document).ready(function () {
 
     //roll点按钮
     $("#roll-btn").click(function () {
+
+        $(this).attr('disabled',"true");//添加disabled属性
+
         //1秒后开始第一个数字的滚动
         //第一个数字滚动1秒后开始滚动第二个数字
         //第二个数字滚动1秒后开始滚动第三个数字
@@ -58,7 +61,7 @@ $(document).ready(function () {
                 // console.log(data);
                 rand_num = data.num;
 
-                console.log(rand_num);
+                // console.log(rand_num);
 
                 clearInterval(timer_1);
                 clearInterval(timer_2);
@@ -81,6 +84,8 @@ $(document).ready(function () {
                 $("#num_1").text(temp_num_1);
                 $("#num_2").text(temp_num_2);
                 $("#num_3").text(temp_num_3);
+
+                $("#roll-btn").removeAttr("disabled"); //移除disabled属性
 
                 // varstr="abcde";截取ab;str=str.substring(0,2);意思是从第一个字符开始截取两位;
 

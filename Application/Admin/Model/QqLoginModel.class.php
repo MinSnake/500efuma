@@ -36,6 +36,13 @@ class QqLoginModel extends RelationModel {
 		$data['last_login_tm'] = date('Y-m-d H:i:s',time());
 		$model->add($data);
 	}
+
+	public function getInfoByOpenId()
+	{
+        $openId = cookie('qq_openId');
+        $cond['openid'] = $openId;
+        return $this->where($cond)->find();
+	}
 	
 	public function updateToken(){
 		

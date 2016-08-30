@@ -1,6 +1,7 @@
 <?php
 namespace Activity\Controller;
 
+use Admin\Model\QqLoginModel;
 use Think\Controller;
 use Think\Log;
 
@@ -28,7 +29,8 @@ class RollController extends Controller
             "client_id=101346347&" .
             "redirect_uri=$now_url&" .
             "state=".$state;
-        $qq_logout_url = U('Public/qqlogout',array('state'=>$state));
+//        $qq_logout_url = U('/Home/Public/qqlogout',array('state'=>$state));
+        $qq_logout_url = "http://www.500efuma.com/Home/Public/qqlogout/state/$state";
         session('state',$state);  //设置session
 
         $this->assign('userList', $userList);
@@ -48,6 +50,24 @@ class RollController extends Controller
         $num = rand(0, 100);
         $data['num'] = $num;
         //结果保存
+        $qqLoginModel = new QqLoginModel();
+        $userInfo = $qqLoginModel->getInfoByOpenId();
+
+
+
+        $rollModel = M('roll');
+
+        $cond['qq_id'] = $userInfo['id'];
+        $is_has = $rollModel->where($cond)->find();
+
+        if (!$is_has)
+        {
+            $data['qq_id'] = $userInfo['id'];
+            $data['roll'] = $num;
+            $data['ctm'] = time();
+            $rollModel->add($data);
+        }
+
         $this->ajaxReturn($data);
     }
 

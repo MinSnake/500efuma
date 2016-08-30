@@ -57,6 +57,7 @@ class PublicController extends HomeBaseController{
 			//将用户的信息放进Cookie中
 			cookie('qq_nickname',$user_info->nickname,3600*24*7);
 			cookie('qq_headurl',$user_info->figureurl_qq_1,3600*24*7);
+			cookie('qq_openId',$openId,3600*24*7);
 		}
 		//跳转到当前浏览的帖子
 
@@ -73,6 +74,7 @@ class PublicController extends HomeBaseController{
 	    //清空cookie中的QQ登录信息
 	    cookie('qq_nickname',null);
 	    cookie('qq_headurl',null);
+	    cookie('qq_openId',null);
 	    //存储文章ID
 	    $state = $_GET['state'];
 	    //跳转到当前浏览的帖子
