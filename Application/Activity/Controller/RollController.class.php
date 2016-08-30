@@ -46,6 +46,7 @@ class RollController extends Controller
         }
 
         $this->assign('rollList', $rollList);
+        $this->assign('userList', $userList);
 
         $this->assign('qq_logout_url', $qq_logout_url);
         $this->assign('qq_nickname', $qq_nickname);
