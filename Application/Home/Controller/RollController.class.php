@@ -93,8 +93,8 @@ class RollController extends Controller
         $cond['qq_id'] = $userInfo['id'];
         $is_has = $rollModel->where($cond)->find();
 
-//        if (!$is_has)
-        if (true)
+        if (!$is_has)
+//        if (true)
         {
             Log::write('发现没有历史数据，马上创建', 'ALERT');
 
