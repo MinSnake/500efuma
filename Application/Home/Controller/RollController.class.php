@@ -33,8 +33,8 @@ class RollController extends Controller
             "client_id=101215106&" .
             "redirect_uri=$now_url&" .
             "state=".$state;
-//        $qq_logout_url = U('/Home/Public/qqlogout',array('state'=>$state));
-        $qq_logout_url = "http://www.500efuma.com/Public/qqlogout/state/$state";
+        $qq_logout_url = U('/Home/Public/qqlogout',array('state'=>$state));
+//        $qq_logout_url = "http://www.500efuma.com/Public/qqlogout/state/$state";
         session('state',$state);  //设置session
 
 

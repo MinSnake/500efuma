@@ -15,18 +15,18 @@ class QQUtil {
 	protected $redirect_uri;
 	
 	public function __construct($type=null){
-		if ($type==null)
-		{
+//		if ($type==null)
+//		{
 			$this->app_id = C('QQ_APP_ID');
 			$this->app_key = C('QQ_APP_KEY');
 			$this->redirect_uri = C('QQ_REDIRECT_URI');
-		}
-		else
-		{
-			$this->app_id = C('QQ_APP_ID_ROLL');
-			$this->app_key = C('QQ_APP_KEY_ROLL');
-			$this->redirect_uri = C('QQ_REDIRECT_URI');
-		}
+//		}
+//		else
+//		{
+//			$this->app_id = C('QQ_APP_ID_ROLL');
+//			$this->app_key = C('QQ_APP_KEY_ROLL');
+//			$this->redirect_uri = C('QQ_REDIRECT_URI');
+//		}
 	}
 	
 	public function getAccessToken($code){
