@@ -121,11 +121,11 @@
                     <if condition="$is_qq_login neq 1">
 
                         <button type="button" class="btn btn-success btn-lg col-sm-12 col-md-12" id="qq-login">
-                            <img src='{$headurl}'>使用QQ登录
+                            <img src='/Template/css/images/Connect_logo_1.png'>使用QQ登录
                         </button>
                         <else />
                         <img class="img-thumbnail"
-                             src="http://q.qlogo.cn/qqapp/101346347/AFF01B8D423447C3D50CDD893F5E61F4/40">
+                             src="{$headurl}">
                         <h1>{$qq_nickname}</h1>
                         <a class="btn btn-danger btn-lg col-md-12" href="{$qq_logout_url}" role="button" id="qq-logout">退出登录</a>
                     </if>
